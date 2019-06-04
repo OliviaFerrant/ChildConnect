@@ -21,6 +21,7 @@ class CasesController < ApplicationController
   def update
     if @case.update(case_params)
       redirect_to
+    end
   end
 
   def destroy

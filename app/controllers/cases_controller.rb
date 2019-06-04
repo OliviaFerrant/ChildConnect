@@ -2,17 +2,21 @@ class CasesController < ApplicationController
   before_action :set_case, only: [:show, :edit, :update, :destroy]
 
   def index
+    @cases = policy_Scope(Case)
   end
 
   def show
+    authorize @case
   end
 
   def new
     @case = Case.new
+    authorize @case
   end
 
   def create
     @case = Case.new(case_params)
+    authorize @case
     @case.user = current_user
     if @case.save
       redirect_to case_path(@case)
@@ -22,9 +26,11 @@ class CasesController < ApplicationController
   end
 
   def edit
+    authorize @case
   end
 
   def update
+    authorize @case
     if @case.update(case_params)
       redirect_to case_path(@case)
     else
@@ -33,6 +39,7 @@ class CasesController < ApplicationController
   end
 
   def destroy
+    authorize @case
     @case.destroy
     redirect_to cases_path
   end

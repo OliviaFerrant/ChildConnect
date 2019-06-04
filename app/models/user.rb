@@ -6,6 +6,5 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true
-  validates :personal_id, presence: true
   has_many :cases
 end

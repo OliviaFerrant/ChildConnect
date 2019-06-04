@@ -1,5 +1,7 @@
 class Case < ApplicationRecord
   belongs_to :user
+  has_many :caserisks
+  has_many :risk, through: :caserisk
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :family_name, presence: true

@@ -2,7 +2,7 @@ class CasesController < ApplicationController
   before_action :set_case, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cases = policy_Scope(Case)
+    @cases = policy_scope(Case)
   end
 
   def show

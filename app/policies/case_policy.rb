@@ -10,7 +10,7 @@ class CasePolicy < ApplicationPolicy
   end
 
   def create?
-    user_is_owner?
+    true
   end
 
   def update?

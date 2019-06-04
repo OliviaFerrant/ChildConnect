@@ -12,14 +12,16 @@
 // }
 
 .navbar-brand {
-  color: #ffffff;
-  padding: 5px;
+  color: #D3E4FF;
+  padding: 7px;
 }
 
 .dropdown-menu {
   color: #EFF8FF;
   background-color: #212227;
+  padding: 7px;
 }
+
 .navbar {
   margin: 0 auto;
   padding: 0;
@@ -30,5 +32,6 @@
 }
 
 .navbar a {
+  font-family: 'Roboto Condensed', sans-serif;
   color: #EFF8FF;
 }

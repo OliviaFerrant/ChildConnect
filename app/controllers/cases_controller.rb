@@ -13,6 +13,12 @@ class CasesController < ApplicationController
 
   def create
     @case = Case.new(case_params)
+    @case.user = current_user
+    if @case.save
+      redirect_to case_path(@case)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -20,7 +26,9 @@ class CasesController < ApplicationController
 
   def update
     if @case.update(case_params)
-      redirect_to
+      redirect_to case_path(@case)
+    else
+      render :edit
     end
   end
 

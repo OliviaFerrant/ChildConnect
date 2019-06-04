@@ -1,17 +1,11 @@
-<h1>Open</h1>
-<!-- Card deck -->
-<div class="card-deck">
-<% @cases.each do |c| %>
-  <!-- Card -->
-  <div class="card shadow-sm" style="width: 18rem;">
-    <!--Card content-->
-    <div class="card-body">
-      <!--Title-->
-      <h5 class="card-title"><%= c.family_name %></h5>
-      <!--Text-->
-    <h6 class="card-subtitle mb-2 text-muted">Case #: <%= c.case_number %></h6>
+<h1 class="main-card-title mt-3 pb-2 pt-3 pl-5 pr-5">Open</h1>
+<div class="cards pl-5 pr-5">
+  <% @cases.each do |c| %>
+  <div class="card-body shadow-sm p-3 mb-2 bg-white rounded">
+    <h5 class="card-title"><%= c.family_name %></h5>
+    <h6 class="card-subtitle text-muted">Case #: <%= c.case_number %></h6>
     <p class="card-text"><%= c.summary %></p>
     <p class="card-delete"><%= link_to "DELETE", case_path(c), method: :delete %></p>
   </div>
+  <% end %>
 </div>
-<% end %>

@@ -2,11 +2,21 @@
   <div class="forms-container">
     <div class="row justify-content-center">
       <div class="col-12 col-sm-8">
-      <h3>List your safety factors</h3>
+      <h4 class="mt-4">Add new safety factor</h4>
+
+
+      <h4 class="mt-4">Case safety factor</h4>
       <div class="gap-30"></div>
-
-
-
+      <% @case_safety_factors.each do |case_safety_factor| %>
+      <div class="card text-left w-50">
+        <div class="card-header">
+          <h5><%= case_safety_factor.safety_factor.fact %></h5>
+        </div>
+        <div class="card-body">
+        <p><%= case_safety_factor.reason %></p>
+        </div>
+      </div>
+      <% end %>
       </div>
     </div>
   </div>

@@ -1,8 +1,8 @@
 class CaseSafetyFactorsController < ApplicationController
-  before_action :set_case, only: [:new, :create, :edit, :update]
+  before_action :set_case, only: [:new, :index, :create, :edit, :update]
 
   def index
-    @case_safety_factors = CaseSafetyFactor.where(case: @case)
+    @case_safety_factors = policy_scope(CaseSafetyFactor).where(case: @case)
     authorize @case_safety_factors
   end
 

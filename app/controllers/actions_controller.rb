@@ -49,7 +49,7 @@ before_action :set_case, only: [:new, :create, :index, :edit, :update]
     @case = Case.find(params[:case_id])
   end
 
-  def case_params
+  def action_params
     params.require(:action).permit(:due_date, :status, :title, :description, :report)
   end
 end

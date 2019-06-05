@@ -1,5 +1,6 @@
 class ActionsController < ApplicationController
-before_action :set_action, :set_case, only: [:index, :new, :create, :edit, :update]
+before_action :set_action, only: [:index, :edit, :update]
+before_action :set_case, only: [:new, :create, :index, :edit, :update]
 
   def index
   end
@@ -9,6 +10,7 @@ before_action :set_action, :set_case, only: [:index, :new, :create, :edit, :upda
 
   def new
     @action = Action.new
+    authorize @action
   end
 
   def create

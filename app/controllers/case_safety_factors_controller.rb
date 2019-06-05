@@ -7,16 +7,17 @@ class CaseSafetyFactorsController < ApplicationController
   end
 
   def new
-    @case_safety_factor = Case_safety_factor.new
+    @case_safety_factor = CaseSafetyFactor.new
   end
 
   def create
-    @case_safety_factor = Case_safety_factor.new(case_safety_factor_params)
+    @case_safety_factor = CaseSafetyFactor.new(case_safety_factor_params)
     @case_safety_factor.case = @case
+    authorize @case_safety_factor
     if @case_safety_factor.save
-      redirect_to case_safety_factor_path(@case_safety_factor)
+      redirect_to case_case_safety_factors_path
     else
-      render :new
+      redirect_to case_case_safety_factors_path
     end
   end
 
@@ -39,7 +40,7 @@ class CaseSafetyFactorsController < ApplicationController
   private
 
   def set_case_safety_factor
-    @case_safety_factor = Case_safety_factor.find(params[:id])
+    @case_safety_factor = CaseSafetyFactor.find(params[:id])
   end
 
   def set_case

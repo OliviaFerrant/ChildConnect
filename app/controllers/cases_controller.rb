@@ -3,7 +3,7 @@ class CasesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @cases = policy_scope(Case)
+    @cases = policy_scope(Case).order(created_at: :desc)
     # raise
   end
 

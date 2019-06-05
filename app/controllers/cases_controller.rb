@@ -8,6 +8,7 @@ class CasesController < ApplicationController
   end
 
   def show
+    @case_actions = CaseAction.where(case: @case)
     authorize @case
   end
 

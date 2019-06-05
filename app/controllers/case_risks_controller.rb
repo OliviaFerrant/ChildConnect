@@ -12,7 +12,7 @@ class CaseRisksController < ApplicationController
 
 	def create
 		@case_risk = CaseRisk.new(case_risk_params)
-		@case_risk.risk = @risk
+		@case_risk.case = @case
 		authorize @case_risk
 		if @case_risk.save
 			redirect_to case_path(@case)

@@ -9,16 +9,22 @@
         <p>Phone Numbers:<a class="card-subtitle text-muted"> <%= @case.phone_number %></a></p>
         <p>Summary:<a class="card-subtitle text-muted"> <%= @case.summary %></a></p>
       </div>
-          <button type="button" class="btn btn-secondary m-3">ADD NEXT ACTION</button> &nbsp
-          <button type="button" class="btn btn-secondary m-3">ADD NOTE</button>
+          <button type="button" class="btn btn-secondary m-3"><%= link_to "ADD NEXT ACTION", new_case_case_action_path(@case) %></button> &nbsp
+          <button type="button" class="btn btn-secondary m-3">ADD NEW NOTE</button>
     </div>
     <div class="col card-accordion shadow-sm pt-4 mt-5 bg-white rounded">
-          <h5>CASE NOTES</h5>
-          <% @case_actions.each do |act| %>
-          <button class="accordion"><%= act.title %>&nbsp &nbsp | &nbsp &nbsp <%= act.due_date %></button>
-          <div class="panel p-3"><p><%= act.description %></p>
-            <p><button type="button" class="btn btn-secondary m-3">ADD NOTE</button></p></div>
-          <% end %>
+      <h5>CASE NOTES</h5>
+      <% @case_actions.each do |act| %>
+      <button class="accordion"><%= act.title %>&nbsp &nbsp | &nbsp &nbsp <%= act.due_date %></button>
+      <div class="panel p-3"><p><%= act.description %></p>
+        <p><button type="button" class="btn btn-secondary m-3">ADD NEW NOTE</button></p></div>
+      <% end %>
+      <br></br>
+      <% @case_actions.each do |act| %>
+      <button class="accordion"><%= act.title %>&nbsp &nbsp | &nbsp &nbsp <%= act.due_date %></button>
+      <div class="panel p-3"><p><%= act.report %></p>
+      <% end %>
+    </div>
     </div>
   </div>
 </div>

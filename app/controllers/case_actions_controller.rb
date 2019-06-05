@@ -1,5 +1,5 @@
 class CaseActionsController < ApplicationController
-before_action :set_action, :set_case, only: [:index, :new, :create, :edit, :update]
+  before_action :set_action, :set_case, only: [:index, :create, :edit, :update]
 
   def index
   end

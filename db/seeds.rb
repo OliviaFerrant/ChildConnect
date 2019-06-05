@@ -9,7 +9,7 @@ puts "cleaning db..."
 Risk.destroy_all
 puts "creating seeds..."
 test = Risk.new
-test.category = "Test des risks !"
+test.category = "Test"
 test.save
 
 puts "all done !"

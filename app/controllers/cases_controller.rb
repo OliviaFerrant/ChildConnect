@@ -1,8 +1,10 @@
 class CasesController < ApplicationController
   before_action :set_case, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @cases = policy_scope(Case)
+    @cases = policy_scope(Case).order(created_at: :desc)
+    # raise
   end
 
   def show
@@ -18,7 +20,7 @@ class CasesController < ApplicationController
     @case = Case.new(case_params)
     authorize @case
     @case.user = current_user
-    if @case.save
+    if @case.save!
       redirect_to case_path(@case)
     else
       render :new
@@ -51,6 +53,6 @@ class CasesController < ApplicationController
   end
 
   def case_params
-    params.require(:case).permit(:start_date, :end_date, :child_name, :family_name, :address, :state)
+    params.require(:case).permit(:start_date, :end_date, :child_name, :family_name, :address, :state, :phone_number, :summary, :case_number)
   end
 end

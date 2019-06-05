@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "cleaning db..."
+Risk.destroy_all
+puts "creating seeds..."
+test = Risk.new
+test.category = "Test des risks !"
+test.save
+
+puts "all done !"

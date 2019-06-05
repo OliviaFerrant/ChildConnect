@@ -5,14 +5,12 @@
       <h3>List your case</h3>
       <div class="gap-30"></div>
       <p>Please fill in the form. (*) are mandatory columns.</p>
-      <%= simple_form_for [@case, @case_risk] do |f| %>
-        <%= f.association :risk, collection: Risk.all %>
-        <%= f.full_error :token %>
-        <%= f.submit 'Save your case', class: "btn btn-outline-dark" %>
+      <%= simple_form_for [@case, @case_risk] do |cr| %>
+        <%= cr.association :risk, collection: Risk.all %>
+        <%= cr.full_error :token %>
+        <%= cr.submit 'Save your action', class: "btn btn-outline-dark" %>
       <% end %>
       </div>
     </div>
   </div>
 </center>
-
-

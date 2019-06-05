@@ -11,7 +11,7 @@ class CaseRisksController < ApplicationController
 	end
 
 	def create
-		@case_risk = CaseRisk.new
+		@case_risk = CaseRisk.new(case_risk_params)
 		@case_risk.risk = @risk
 		authorize @case_risk
 		if @case_risk.save

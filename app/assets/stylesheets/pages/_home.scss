@@ -2,8 +2,39 @@ h1 {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-h5, h6, p {
+h5, h6 {
   font-family: 'Asap Condensed', sans-serif;
+}
+
+p {
+  font-family: 'Asap Condensed', sans-serif;
+  font-size: 14px;
+  line-height: 15px;
+  margin-bottom: 3px;
+}
+
+/* unvisited link */
+a:link {
+  color: #E8F4FF;
+}
+
+/* visited link */
+a:visited {
+  color: #E8F4FF;
+}
+
+/* mouse over link */
+a:hover {
+  color: #ffffff;
+}
+
+/* selected link */
+a:active {
+  color: #E8F4FF;
+}
+
+.btn {
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .cards {
@@ -11,6 +42,33 @@ h5, h6, p {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
   font-family: 'Asap Condensed', sans-serif;
+}
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+  background-color: #212227;
+  font-family: 'Asap Condensed', sans-serif;
+  color: #D3E4FF;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.accordion:hover {
+  background-color: #8693AB;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 10px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
 }
 
 // Smallest device

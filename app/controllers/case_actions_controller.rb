@@ -1,5 +1,11 @@
+<<<<<<< HEAD:app/controllers/actions_controller.rb
+class ActionsController < ApplicationController
+before_action :set_action, only: [:index, :edit, :update]
+before_action :set_case, only: [:new, :create, :index, :edit, :update]
+=======
 class CaseActionsController < ApplicationController
 before_action :set_action, :set_case, only: [:index, :new, :create, :edit, :update]
+>>>>>>> master:app/controllers/case_actions_controller.rb
 
   def index
   end
@@ -47,7 +53,11 @@ before_action :set_action, :set_case, only: [:index, :new, :create, :edit, :upda
     @case = Case.find(params[:case_id])
   end
 
+<<<<<<< HEAD:app/controllers/actions_controller.rb
+  def action_params
+=======
   def case_action_params
+>>>>>>> master:app/controllers/case_actions_controller.rb
     params.require(:action).permit(:due_date, :status, :title, :description, :report)
   end
 end

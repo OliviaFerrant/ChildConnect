@@ -1,19 +1,20 @@
 class CaseRiskController < ApplicationController
-    before_action :set_case, only: [:show, :new, :create, :edit, :update]
+    before_action :set_case, only: [:new, :create, :edit, :update]
 
     def index
     end
 
-    def show
-    end
-
     def new
+			@caserisk = Caserisk.new
     end
 
     def create
+			@caserisk = Caserisk.new
+			@caserisk.risk = @risk
     end
 
-    def edit
+		def edit
+			
     end
 
     def update
@@ -25,7 +26,9 @@ class CaseRiskController < ApplicationController
     private
 
     def set_case
-        @case = case.find(params[:case_id])
+			@case = case.find(params[:case_id])
     end
 
+    def caserisk_params
+			params.require(:caserisk).permit(:risk_id)
 end

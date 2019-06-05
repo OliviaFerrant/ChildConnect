@@ -1,12 +1,48 @@
 <div class="container">
-  <div class="d-flex justify-content-around mt-5">
-      <div class="sexy_line"></div>
-      <h4 class="mt-3">Summary</h4>
-      <div class="sexy_line"></div>
-      <p class="mt-4"><%= @case.summary %></p>
-      <div class="sexy_line"></div>
-      <h4 class="mt-3">Additional reports</h4>
-      <div class="sexy_line"></div>
-      <p class="mt-4">Luxury offers free standard shipping on qualifying orders of $150 or more before taxes and shipping charges are added or $25 flat-rate standard shipping. If you need an item quicker you will have the option to upgrade to expedited shipping at checkout for an additional fee. Return shipping is free for all rentals. </p>
+  <div class="row">
+    <div class="col-md-auto">
+      <div class="card-body shadow-sm pt-4 mt-5 bg-white rounded">
+        <h5 class="card-title"><%= @case.family_name %></h5>
+        <p>Case #:<a class="card-subtitle text-muted"> <%= @case.case_number %></a></p>
+        <p>Subject Children:<a class="card-subtitle text-muted"> <%= @case.child_name %></a></p>
+        <p>Address:<a class="card-subtitle text-muted"> <%= @case.address %></a></p>
+        <p>Phone Numbers:<a class="card-subtitle text-muted"> <%= @case.phone_number %></a></p>
+        <p>Summary:<a class="card-subtitle text-muted"> <%= @case.summary %></a></p>
+      </div>
+          <button type="button" class="btn btn-secondary m-3"><%= link_to "ADD NEXT ACTION", new_case_case_action_path(@case) %></button> &nbsp
+          <button type="button" class="btn btn-secondary m-3">ADD NEW NOTE</button>
+    </div>
+    <div class="col card-accordion shadow-sm pt-4 mt-5 bg-white rounded">
+      <h5>CASE NOTES</h5>
+      <% @case_actions.each do |act| %>
+      <button class="accordion"><%= act.title %>&nbsp &nbsp | &nbsp &nbsp <%= act.due_date %></button>
+      <div class="panel p-3"><p><%= act.description %></p>
+        <p><button type="button" class="btn btn-secondary m-3">ADD NEW NOTE</button></p></div>
+      <% end %>
+      <br></br>
+      <% @case_actions.each do |act| %>
+      <button class="accordion"><%= act.title %>&nbsp &nbsp | &nbsp &nbsp <%= act.due_date %></button>
+      <div class="panel p-3"><p><%= act.report %></p>
+      <% end %>
+    </div>
     </div>
   </div>
+</div>
+
+
+<script>
+const acc = document.getElementsByClassName("accordion");
+let i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    let panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+</script>

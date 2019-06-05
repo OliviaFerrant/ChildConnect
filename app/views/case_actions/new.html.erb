@@ -7,7 +7,6 @@
       <p>Please fill in the form. (*) are mandatory columns.</p>
       <%= simple_form_for [@case, @case_action] do |f| %>
         <%= f.input :title %>
-        <%= f.input :due_date %>
         <%= f.input :description %>
         <%= f.full_error :token %>
         <%= f.submit 'Save your action', class: "btn btn-outline-dark" %>

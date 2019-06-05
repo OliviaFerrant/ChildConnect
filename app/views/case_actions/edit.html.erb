@@ -5,7 +5,7 @@
       <h3>Submit your case note</h3>
       <div class="gap-30"></div>
       <p>Please fill in the form. (*) are mandatory columns.</p>
-      <%= simple_form_for [@case, @action] do |f| %>
+      <%= simple_form_for [@case, @case_action] do |f| %>
         <%= f.input :report, label: 'Case Note', error: 'Case Note is mandatory, please specify one' %>
         <%= f.input :status %>
         <form action="/action_page.php">

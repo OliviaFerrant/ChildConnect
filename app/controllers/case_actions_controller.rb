@@ -1,24 +1,23 @@
-<<<<<<< HEAD:app/controllers/actions_controller.rb
-class ActionsController < ApplicationController
-before_action :set_action, only: [:index, :edit, :update]
-before_action :set_case, only: [:new, :create, :index, :edit, :update]
-=======
 class CaseActionsController < ApplicationController
-before_action :set_action, :set_case, only: [:index, :new, :create, :edit, :update]
->>>>>>> master:app/controllers/case_actions_controller.rb
+  before_action :set_action, :set_case, only: [:index, :create, :edit, :update]
+  before_action :set_case, only: :new
 
   def index
+    
   end
 
   def show
+    authorize @case_action
   end
 
   def new
     @case_action = CaseAction.new
+    authorize @case_action
   end
 
   def create
     @case_action = CaseAction.new(case_action_params)
+    authorize @case_action
     @case_action.case = @case
     if @case_action.save
       redirect_to action_path(@case)
@@ -28,9 +27,11 @@ before_action :set_action, :set_case, only: [:index, :new, :create, :edit, :upda
   end
 
   def edit
+    authorize @case_action
   end
 
   def update
+    authorize @case_action
     if @case_action.update(action_params)
       redirect_to action_path(@case_action)
     else
@@ -39,6 +40,7 @@ before_action :set_action, :set_case, only: [:index, :new, :create, :edit, :upda
   end
 
   def destroy
+    authorize @case_action
     @case_action.destroy
     redirect_to action_path
   end
@@ -53,11 +55,8 @@ before_action :set_action, :set_case, only: [:index, :new, :create, :edit, :upda
     @case = Case.find(params[:case_id])
   end
 
-<<<<<<< HEAD:app/controllers/actions_controller.rb
-  def action_params
-=======
+
   def case_action_params
->>>>>>> master:app/controllers/case_actions_controller.rb
     params.require(:action).permit(:due_date, :status, :title, :description, :report)
   end
 end

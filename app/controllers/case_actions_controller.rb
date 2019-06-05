@@ -57,6 +57,6 @@ class CaseActionsController < ApplicationController
 
 
   def case_action_params
-    params.require(:case_action).permit(:due_date, :status, :title, :description, :report)
+    params.require(:case_action).permit(:due_date, :status, :title, :description, :report, :photo)
   end
 end

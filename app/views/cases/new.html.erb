@@ -4,11 +4,11 @@
       <div class="col-12 col-sm-8">
       <h3>List your case</h3>
       <div class="gap-30"></div>
-      <p>Please fill in the form. (*) are mandatory columns.</p>
+      <p>Please fill in the form. All columns are mandatory.</p>
       <%= simple_form_for @case do |f| %>
         <%= f.input :case_number %>
-        <%= f.input :child_name %>
-        <%= f.input :family_name %>
+        <%= f.input :child_name, label: 'Subject Children', error: 'Subject Children is mandatory, please specify one'  %>
+        <%= f.input :family_name, label: 'Case Name', error: 'Case Name is mandatory, please specify one'  %>
         <%= f.input :address %>
         <%= f.input :phone_number %>
         <%= f.input :summary %>

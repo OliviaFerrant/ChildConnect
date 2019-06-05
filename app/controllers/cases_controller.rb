@@ -8,6 +8,7 @@ class CasesController < ApplicationController
   end
 
   def show
+    @case_actions = CaseAction.where(case: @case)
     authorize @case
   end
 
@@ -20,7 +21,7 @@ class CasesController < ApplicationController
     @case = Case.new(case_params)
     authorize @case
     @case.user = current_user
-    if @case.save!
+    if @case.save
       redirect_to case_path(@case)
     else
       render :new

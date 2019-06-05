@@ -5,7 +5,7 @@
       <h3>List your action</h3>
       <div class="gap-30"></div>
       <p>Please fill in the form. (*) are mandatory columns.</p>
-      <%= simple_form_for @case do |f| %>
+      <%= simple_form_for [@case, @action] do |f| %>
         <%= f.input :title %>
         <%= f.input :due_date %>
         <%= f.input :description %>

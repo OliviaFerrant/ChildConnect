@@ -16,7 +16,7 @@
       <div class="col card-accordion shadow-sm pt-4 mt-5 bg-white rounded">
         <h5>CASE NOTES</h5>
         <% @case_actions.each do |act| %>
-        <button class="accordion"><%= act.title %></button>
+        <button class="accordion"><%= act.title %> | <%= act.due_date %></button>
         <div class="panel p-3"><p><%= act.description %></p>
           <p><%= act.report %></p>
           <p><%= link_to "ADD NEW NOTE", edit_case_action_path(act), class: 'btn btn-secondary rounded-pill btn-sm m-2 p-2' %></p>

@@ -2,9 +2,10 @@
 <div class="cards pl-5 pr-5">
   <% @cases.each do |c| %>
   <div class="card-body shadow-sm p-3 mb-2 bg-white rounded">
-    <h5 class="card-title"><%= c.family_name %></h5>
+    <h5 class="card-title <%= c.priority_color %>"><%= c.family_name %></h5>
     <h6 class="card-subtitle text-muted">Case #: <%= c.case_number %></h6>
     <p class="card-text"><%= c.summary %></p>
+    <p><%= @case_actions.title %> | <%= @case_actions.due_date %></p>
     <p class="card-delete"><%= link_to "VIEW", case_path(c), class: 'btn btn-secondary rounded-pill btn-sm' %> &nbsp &nbsp <%= link_to "DELETE", case_path(c), class: 'btn btn-secondary rounded-pill btn-sm', method: :delete %></button> </p>
   </div>
   <% end %>

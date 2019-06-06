@@ -48,6 +48,8 @@ safety_factors = [
     "19. No Safety Factors present at this time."
 ]
 
+Date.today + 1 ]
+
 risks.each do |risk|
     Risk.create(category: risk)
 end

@@ -4,6 +4,7 @@ class CasesController < ApplicationController
 
   def index
     @cases = policy_scope(Case).order(created_at: :desc)
+    @case_actions = CaseAction.last
     # raise
   end
 

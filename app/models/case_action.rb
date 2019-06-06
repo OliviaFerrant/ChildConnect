@@ -1,4 +1,5 @@
 class CaseAction < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   belongs_to :case
   # validates :due_date, presence: true
   # validates :status, presence: true

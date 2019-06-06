@@ -4,7 +4,7 @@ class CaseActionPolicy < ApplicationPolicy
       scope.all
     end
   end
-  
+
   def show?
     true
   end
@@ -14,7 +14,7 @@ class CaseActionPolicy < ApplicationPolicy
   end
 
   def update?
-    user_is_owner?
+    true
   end
 
   def destroy?

@@ -53,6 +53,10 @@ p {
   overflow: hidden;
 }
 
+.card-safety a {
+  color: #8693AB;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

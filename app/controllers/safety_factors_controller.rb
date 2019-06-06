@@ -1,0 +1,7 @@
+class SafetyFactorsController < ApplicationController
+
+end
+
+
+
+

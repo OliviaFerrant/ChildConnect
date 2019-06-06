@@ -1,5 +1,5 @@
 class Risk < ApplicationRecord
-	validates :type, presence: true
-	has_many :caserisks
-	has_many :cases, through: :caserisk
+	validates :category, presence: true
+	has_many :case_risks
+	has_many :cases, through: :case_risk
 end

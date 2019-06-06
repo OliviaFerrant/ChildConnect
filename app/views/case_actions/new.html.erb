@@ -2,14 +2,14 @@
   <div class="forms-container">
     <div class="row justify-content-center">
       <div class="col-12 col-sm-8">
-      <h3>List your action</h3>
+      <h3>Add Your Next Action</h3>
       <div class="gap-30"></div>
-      <p>Please fill in the form. (*) are mandatory columns.</p>
+      <p>(*) are mandatory entries</p>
       <%= simple_form_for [@case, @case_action] do |f| %>
-        <%= f.input :title %>
-        <%= f.input :description %>
+        <%= f.input :title, label: 'Action'%>
+        <%= f.input :description, label: 'Description (optional)', as: :text %>
         <%= f.full_error :token %>
-        <%= f.submit 'Save your action', class: "btn btn-outline-dark" %>
+        <%= f.submit '    ADD ACTION    ', class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
       <% end %>
       </div>
     </div>

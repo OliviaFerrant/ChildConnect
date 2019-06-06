@@ -61,6 +61,14 @@ p {
   color: #8693AB;
 }
 
+/* ----- SimpleForm Styles ----- */
+
+label.collection_radio_buttons {
+  margin-right: 10px;
+  vertical-align: -2px;
+  margin-left: 4px;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

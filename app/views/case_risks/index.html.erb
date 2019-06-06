@@ -1,0 +1,22 @@
+<center>
+  <div class="forms-container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-8">
+      <h4 class="mt-4">Add new Risk Factor</h4>
+        <%= simple_form_for [@case, CaseRisk.new] do |f| %>
+        <%= f.input :risk_id,:collection => Risk.all,:label_method => :category,:value_method => :id,:label => "Risk Factor" ,:include_blank => false %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <%end%>
+      <h4 class="mt-4">Case Risk Factor</h4>
+      <div class="gap-30"></div>
+      <% @case_risks.each do |case_risk| %>
+      <div class="card text-left w-50">
+        <div class="card-header">
+          <h5><%= case_risk.risk.category %></h5>
+        </div>
+      </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</center>

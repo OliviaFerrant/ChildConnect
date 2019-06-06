@@ -10,7 +10,7 @@
         <%= f.input :family_name, label: 'Case Name', error: 'Case Name is mandatory, please specify one', input_html: { style: "width:80%" } %>
         <%= f.input :address, input_html: { style: "width:80%" } %>
         <%= f.input :phone_number, placeholder: 'Use "," when you add more than one phone number', input_html: { style: "width:80%" } %>
-        <%= f.input :summary, input_html: { style: "height:200px", style: "width:80%"}, as: :text %>
+        <%= f.input :summary, input_html: { style: "width:80%"}, as: :text %>
         <%= f.input :start_date, as: :string, class: 'datepicker', input_html: { style: "width:80%" } %>
         <%= f.full_error :token %>
         <%= f.submit 'Save your case', class: "btn btn-outline-dark mb-5" %>

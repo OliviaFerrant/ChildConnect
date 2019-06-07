@@ -18,10 +18,10 @@
         <h5>CASE NOTES</h5>
         <% @case_actions.each do |act| %>
         <button class="accordion mt-2"><%= act.title %></button>
-        <div class="panel p-3"><p><%= act.description %></p>
-         <div class="divider div-transparent div-arrow-down"></div>
-          <p><%= act.report %></p>
-          <div class="divider div-transparent div-arrow-down"></div>
+        <div class="panel"><p class="p-3 m-3"><%= act.description %></p>
+         <hr>
+          <p class="p-3"><%= act.report %></p>
+          <hr>
           <p class="p-3"><%= link_to "ADD NEW NOTE", edit_case_action_path(act), class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %></p>
         </div>
         <% end %>

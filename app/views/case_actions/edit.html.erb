@@ -9,6 +9,7 @@
         <%= f.input :report, label: 'Case Note:', input_html: { class: "input", style: "height:150px; width:70%"}, as: :text %>
         <%= f.full_error :token %>
         <p>
+          <%= link_to "VIEW", case_path(id: @case_action.case_id), class: 'btn btn-secondary rounded-pill btn-sm' %>
           <%= f.submit 'ADD NOTE ', class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
         </p>
       </div>

@@ -8,6 +8,7 @@
         <%= f.input :title, label: 'Action:', input_html: { class: "input", style: "width:70%" }, placeholder: 'Add an action that needs to be completed' %>
         <%= f.input :description, label: 'Description (optional):', input_html: { class: "input", style: "height:150px; width:70%" }, as: :text, placeholder: 'Add a short description of your action if needed' %>
         <%= f.full_error :token %>
+        <%= link_to "VIEW", case_path(@case), class: 'btn btn-secondary rounded-pill btn-sm' %>
         <%= f.submit '    ADD ACTION    ', class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
       <% end %>
       </div>

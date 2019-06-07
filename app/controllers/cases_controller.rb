@@ -20,7 +20,7 @@ class CasesController < ApplicationController
   def create
     @case = Case.new(case_params)
     authorize @case
-    @case.user = current_user
+    @case.user_id = current_user
     if @case.save
       redirect_to case_path(@case)
     else

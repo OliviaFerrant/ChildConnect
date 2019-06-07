@@ -13,6 +13,7 @@
         <%= f.input :summary, input_html: { style: "width:80%"}, as: :text %>
         <%= f.input :start_date, as: :string, class: 'datepicker', input_html: { style: "width:80%" } %>
         <%= f.full_error :token %>
+        <%= link_to "BACK", cases_path, class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
         <%= f.submit "  ADD CASE  ", class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
       <% end %>
       </div>

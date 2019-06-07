@@ -5,7 +5,7 @@
       <h3 class="mb-3">New Case Note</h3>
       <%= simple_form_for [@case, @case_action] do |f| %>
       <p><h6>Case Status:</h6>
-        <%= f.collection_radio_buttons :status, [['No Changes'],['Court'], ['Close Case']], :first, :last, input_html: { class: "input"} %></p>
+        <%= f.collection_radio_buttons :status, [['No Changes'],['Court'], ['Close Case']], :first, :last, input_html: { class: "input"}, checked: 'No Changes' %></p>
         <%= f.input :report, label: 'Case Note:', input_html: { class: "input", style: "height:150px; width:70%"}, as: :text %>
         <%= f.full_error :token %>
         <p>

@@ -8,7 +8,7 @@ class CasesController < ApplicationController
   end
 
   def show
-    @case_actions = CaseAction.where(case: @case)
+    @case_actions = CaseAction.where(case: @case).order(title: :asc)
     authorize @case
   end
 

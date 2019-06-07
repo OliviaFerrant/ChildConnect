@@ -7,7 +7,7 @@
       <div class="gap-30"></div>
       <p>Please fill in the form. (*) are mandatory columns.</p>
       <%= simple_form_for @case_safety_factor do |f| %>
-        <%= f.input :case_safety_factor %>
+        <%= f.input :case_safety_factor, collection: SafetyFactor.all %>
         <%= f.input :reason %>
         <%= f.full_error :token %>
         <%= f.submit 'Save safety factor', class: "btn btn-outline-dark" %>

@@ -43,6 +43,7 @@ class CaseActionsController < ApplicationController
       when 'Unchanged'
         @case_action.case.update(state: 'Unchanged')
       end
+      @case_action.update(status: nil)
       redirect_to case_path(id: @case_action.case_id)
     else
       render :edit

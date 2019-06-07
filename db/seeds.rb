@@ -74,7 +74,7 @@ puts "creating Cases"
         # end_date: start_date + 60,
         case_number: rand(12345...99999),
         phone_number: Faker::PhoneNumber.phone_number,
-        summary: Faker::Lorem.sentence,
+        summary: Faker::Lorem.paragraph
     )
     end
 puts "all done !"

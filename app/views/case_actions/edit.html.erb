@@ -1,20 +1,18 @@
 <center>
   <div class="forms-container">
     <div class="row justify-content-center">
-      <div class="col-12 col-sm-8">
-      <h3>Submit Your Case Note</h3>
-      <div class="gap-30"></div>
-      <p>(*) are mandatory entries</p>
+      <div class="card-body shadow col-12 col-sm-8 mt-5 bg-white rounded">
+      <h3 class="mb-3">New Case Note</h3>
       <%= simple_form_for [@case, @case_action] do |f| %>
-        <%= f.input :report, label: 'Case Note', error: 'Case Note entry cannot be left blank.', as: :text %>
-        <p>Case Status:</p>
-          <input type="radio" name="status" value="male"> Unchanged<br>
-          <input type="radio" name="status" value="female"> Close<br>
-          <input type="radio" name="status" value="other"> Court<br>
+      <p><h6>Case Status:</h6>
+        <%= f.collection_radio_buttons :status, [['No Changes'],['Court'], ['Close Case']], :first, :last, input_html: { class: "input"} %></p>
+        <%= f.input :report, label: 'Case Note:', input_html: { class: "input", style: "height:150px; width:70%"}, as: :text %>
         <%= f.full_error :token %>
-        <%= f.submit 'ADD NOTE ', class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
-      <% end %>
+        <p>
+          <%= f.submit 'ADD NOTE ', class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
+        </p>
       </div>
+      <% end %>
     </div>
   </div>
 </center>

@@ -4,12 +4,11 @@ class CasesController < ApplicationController
 
   def index
     @cases = policy_scope(Case).order(created_at: :desc)
-    @case_actions = CaseAction.last
     # raise
   end
 
   def show
-    @case_actions = CaseAction.where(case: @case)
+    @case_actions = CaseAction.where(case: @case).order(title: :asc)
     authorize @case
   end
 

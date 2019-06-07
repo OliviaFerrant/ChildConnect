@@ -6,8 +6,7 @@ class CaseAction < ApplicationRecord
   # validates :title, presence: true
   # validates :description, presence: true
   # validates :report, presence: true
-  ACTS = [
-    "1. Call the reporter & Home visit (day 1)",
+  ACTS = ["1. Call the reporter & Home visit (day 1)",
     "2. School visit & contact other sources (day 2-5)",
     "3. Safety Factors Checklist due (day 7)",
     "4. Second home visit (day 15)",

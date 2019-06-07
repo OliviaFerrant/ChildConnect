@@ -27,7 +27,7 @@ class Case < ApplicationRecord
   end
 
   def priority_action
-    priority_next_action = next_action
+    priority_next_action = case_actions.where(status: nil).order(:due_date).first
     if !priority_next_action
       return ""
     else

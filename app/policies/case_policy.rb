@@ -14,16 +14,11 @@ class CasePolicy < ApplicationPolicy
   end
 
   def update?
-    user_is_owner?
+    true
   end
 
   def destroy?
-    user_is_owner?
+    true
   end
 
-  private
-
-  def user_is_owner?
-    user == record.user
-  end
 end

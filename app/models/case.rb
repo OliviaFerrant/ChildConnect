@@ -31,7 +31,7 @@ class Case < ApplicationRecord
     if !priority_next_action
       return ""
     else
-      priority_next_action.title + "|" + priority_next_action.due_date.to_s
+      priority_next_action.title + " | Deadline:" + priority_next_action.due_date.to_s
     end
 
   end

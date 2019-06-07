@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_234339) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "case_number"
+    t.string "case_number"
     t.string "phone_number"
     t.string "summary"
     t.index ["user_id"], name: "index_cases_on_user_id"

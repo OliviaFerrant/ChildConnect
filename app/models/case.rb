@@ -18,17 +18,30 @@ class Case < ApplicationRecord
   COLORS = ["bg-light", "bg-warning", "bg-danger"]
 
   def next_action
-    @case_action = CaseAction.where(case_id: @case).order(due_date: :desc)
+    #@case = Case.all
+    case_actions.where(status: nil).order(:due_date).first
+    
     # 1 - get all my case_actions for this case
     # 2 - sort them by due date
     # 3 - get the closest due date from today, that is in the future, and is not set as finish
   end
-
+    
   def my_priority
+    next_case_action = next_action
+    if !next_case_action
+      return 0
+    end
+    if next_case_action.due_date - Date.today <= 1
+      return 2
+    elsif next_case_action.due_date - Date.today <= 3
+      return 1
+    else
+      return 0
+    end
+    
     # 1 - find the next action which will happen the sooner
     # 2 - evaluate the priority of the action from 0 to 2
     # 3 - return the priority
-    rand(0..2)
   end
 
   def priority_color

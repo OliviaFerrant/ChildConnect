@@ -1,6 +1,6 @@
 class CaseActionsController < ApplicationController
   before_action :set_action, only: [:index, :edit, :update]
-  before_action :set_case, only: [:index, :new, :create, :edit, :update]
+  before_action :set_case, only: [:index, :new, :create]
 
   def index
     @case_actions = policy_scope(CaseAction)
@@ -27,13 +27,23 @@ class CaseActionsController < ApplicationController
   end
 
   def edit
+    @case_action = CaseAction.find(params[:id])
     authorize @case_action
   end
 
   def update
     authorize @case_action
-    if @case_action.update(action_params)
-      redirect_to case_path(@case)
+    if @case_action.update(case_action_params)
+      # raise
+      case @case_action.status
+      when 'Court'
+        @case_action.case.update(state: 'Court')
+      when 'Close Case'
+        @case_action.case.update(state: 'Close Case')
+      when 'Unchanged'
+        @case_action.case.update(state: 'Unchanged')
+      end
+      redirect_to case_path(id: @case_action.case_id)
     else
       render :edit
     end
@@ -54,7 +64,6 @@ class CaseActionsController < ApplicationController
   def set_case
     @case = Case.find(params[:case_id])
   end
-
 
   def case_action_params
     params.require(:case_action).permit(:due_date, :status, :title, :description, :report, :photo)

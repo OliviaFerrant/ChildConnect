@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-auto">
+    <div class="col-3">
       <div class="card-body shadow-sm pt-4 mt-5 bg-white rounded">
         <h5 class="card-title"><%= @case.family_name %></h5>
         <p>Case #:<a class="card-subtitle text-muted"> <%= @case.case_number %></a></p>
@@ -8,28 +8,27 @@
         <p>Address:<a class="card-subtitle text-muted"> <%= @case.address %></a></p>
         <p>Phone Numbers:<a class="card-subtitle text-muted"> <%= @case.phone_number %></a></p>
         <p>Summary:<a class="card-subtitle text-muted"> <%= @case.summary %></a></p>
+        <p><strong>Status:<a class="card-subtitle text-muted"> <%= @case.state %></a></strong></p>
+        <p class="card-safety"><%=link_to "Safety Factors", case_case_safety_factors_path(@case)   %></p>
       </div>
-          <button type="button" class="btn btn-secondary m-3"><%= link_to "ADD NEXT ACTION", new_case_case_action_path(@case) %></button> &nbsp
-          <button type="button" class="btn btn-secondary m-3">ADD NEW NOTE</button>
+          <%= link_to "ADD NEXT ACTION", new_case_case_action_path(@case), class: 'btn btn-secondary rounded-pill m-2 ml-5' %>
+
     </div>
-    <div class="col card-accordion shadow-sm pt-4 mt-5 bg-white rounded">
-      <h5>CASE NOTES</h5>
-      <% @case_actions.each do |act| %>
-      <button class="accordion"><%= act.title %>&nbsp &nbsp | &nbsp &nbsp <%= act.due_date %></button>
-      <div class="panel p-3"><p><%= act.description %></p>
-        <p><button type="button" class="btn btn-secondary m-3">ADD NEW NOTE</button></p></div>
-      <% end %>
-      <br></br>
-      <% @case_actions.each do |act| %>
-      <button class="accordion"><%= act.title %>&nbsp &nbsp | &nbsp &nbsp <%= act.due_date %></button>
-      <div class="panel p-3"><p><%= act.report %></p>
-      <% end %>
+      <div class="col-9 card-accordion shadow-sm pt-4 mt-5 bg-white rounded">
+        <h5>CASE NOTES</h5>
+        <% @case_actions.each do |act| %>
+        <button class="accordion mt-2"><%= act.title %></button>
+        <div class="panel p-3"><p><%= act.description %></p>
+         <div class="divider div-transparent div-arrow-down"></div>
+          <p><%= act.report %></p>
+          <div class="divider div-transparent div-arrow-down"></div>
+          <p class="p-3"><%= link_to "ADD NEW NOTE", edit_case_action_path(act), class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %></p>
+        </div>
+        <% end %>
+      </div>
     </div>
-    </div>
-    <%=link_to "safety factor", case_case_safety_factors_path(@case)   %>
   </div>
 </div>
-
 
 <script>
 const acc = document.getElementsByClassName("accordion");

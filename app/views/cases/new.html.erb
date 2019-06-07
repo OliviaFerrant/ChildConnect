@@ -1,24 +1,21 @@
 <center>
   <div class="forms-container">
     <div class="row justify-content-center">
-      <div class="col-12 col-sm-8">
-      <h3>List your case</h3>
-      <div class="gap-30"></div>
-      <p>Please fill in the form. All columns are mandatory.</p>
+      <div class="card-body shadow col-12 col-sm-8 mt-5 bg-white rounded">
+      <h3>Add A New Case</h3>
+      <p class="mb-4">All fields are mandatory.</p>
       <%= simple_form_for @case do |f| %>
-        <%= f.input :case_number %>
-        <%= f.input :child_name, label: 'Subject Children', error: 'Subject Children is mandatory, please specify one'  %>
-        <%= f.input :family_name, label: 'Case Name', error: 'Case Name is mandatory, please specify one'  %>
-        <%= f.input :address %>
-        <%= f.input :phone_number %>
-        <%= f.input :summary %>
-        <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+        <%= f.input :case_number, input_html: { style: "width:80%" } %>
+        <%= f.input :child_name, label: 'Subject Children', placeholder: 'Use "," when you add more than one child', error: 'Subject Children is mandatory, please specify one', input_html: { style: "width:80%" }  %>
+        <%= f.input :family_name, label: 'Case Name', error: 'Case Name is mandatory, please specify one', input_html: { style: "width:80%" } %>
+        <%= f.input :address, input_html: { style: "width:80%" } %>
+        <%= f.input :phone_number, placeholder: 'Use "," when you add more than one phone number', input_html: { style: "width:80%" } %>
+        <%= f.input :summary, input_html: { style: "width:80%"}, as: :text %>
+        <%= f.input :start_date, as: :string, class: 'datepicker', input_html: { style: "width:80%" } %>
         <%= f.full_error :token %>
-        <%= f.submit 'Save your case', class: "btn btn-outline-dark" %>
+        <%= f.submit "  ADD CASE  ", class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
       <% end %>
       </div>
     </div>
   </div>
 </center>
-
-

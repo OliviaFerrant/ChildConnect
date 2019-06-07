@@ -1,4 +1,8 @@
-h1 {
+h1, h2, h3, h4 {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+label {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -13,28 +17,10 @@ p {
   margin-bottom: 3px;
 }
 
-/* unvisited link */
-a:link {
-  color: #E8F4FF;
-}
-
-/* visited link */
-a:visited {
-  color: #E8F4FF;
-}
-
-/* mouse over link */
-a:hover {
-  color: #ffffff;
-}
-
-/* selected link */
-a:active {
-  color: #E8F4FF;
-}
 
 .btn {
   font-family: 'Roboto Condensed', sans-serif;
+  text-decoration: none;
 }
 
 .cards {
@@ -70,6 +56,46 @@ a:active {
   display: none;
   overflow: hidden;
 }
+
+.card-safety a {
+  color: #8693AB;
+}
+
+.divider
+{
+  position: relative;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  height: 1px;
+}
+
+.div-transparent:before
+{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent);
+}
+
+.div-arrow-down:after
+{
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -7px;
+  left: calc(50% - 7px);
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  background-color: white;
+  border-bottom: 1px solid rgb(48,49,51);
+  border-right: 1px solid rgb(48,49,51);
+}
+
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

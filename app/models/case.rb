@@ -25,6 +25,16 @@ class Case < ApplicationRecord
     # 2 - sort them by due date
     # 3 - get the closest due date from today, that is in the future, and is not set as finish
   end
+
+  def priority_action
+    priority_next_action = next_action
+    if !priority_next_action
+      return ""
+    else
+      priority_next_action.title + "|" + priority_next_action.due_date.to_s
+    end
+
+  end
     
   def my_priority
     next_case_action = next_action

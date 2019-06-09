@@ -17,7 +17,7 @@
       <div class="col-9 card-accordion shadow-sm pt-4 mt-5 bg-white rounded">
         <h5>CASE NOTES</h5>
         <% @case_actions.each do |act| %>
-        <button class="accordion mt-2"><%= act.title %></button>
+        <button class="accordion mt-2"><%= act.title %>| <%= act.due_date %></button>
         <div class="panel"><p class="p-3 m-3"><%= act.description %></p>
          <hr>
           <p class="p-3"><%= act.report %></p>

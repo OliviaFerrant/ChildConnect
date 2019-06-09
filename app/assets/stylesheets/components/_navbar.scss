@@ -12,6 +12,7 @@
 // }
 
 .navbar-brand {
+  font-size: 2em;
   color: #D3E4FF;
   padding: 7px;
 }
@@ -26,9 +27,14 @@
   margin: 0 auto;
   padding: 0;
   width: 100%;
+  height: 70px;
   color: #EFF8FF;
   background-color: #212227;
   font-family: 'Roboto Condensed', sans-serif;
+}
+
+.navbar-nav {
+  font-size: 1.2em;
 }
 
 .navbar a {

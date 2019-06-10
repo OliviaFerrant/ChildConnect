@@ -5,6 +5,8 @@
       <h3>Add A New Case</h3>
       <p class="mb-4">All fields are mandatory.</p>
       <%= simple_form_for @case do |f| %>
+        <center><%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %></center>
         <%= f.input :start_date, label: 'Open Date', required: true, as: :string, placeholder: 'MM/DD/YYYY', input_html: { class: 'input', style: "width:70%" } %>
         <%= f.input :case_number, label: 'Case Number', input_html: { class: "input", style: "width:70%" }, placeholder: 'NY12345' %>
         <%= f.input :child_name, label: 'Subject Child/Children', placeholder: 'Use "," when adding more than one child', error: 'Subject Children is mandatory, please specify one', input_html: { class: "input",style: "width:70%" }  %>

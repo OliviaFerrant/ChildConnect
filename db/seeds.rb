@@ -66,7 +66,7 @@ User.create!(email: "thomasferrant@hotmail.fr", password: "secret")
 puts "creating Cases"
 10.times do |c|
     Case.create!(
-        address: Faker::Address.full_address,
+        address: Faker::Address.state,
         family_name: Faker::Name.last_name,
         child_name: Faker::Name.first_name,
         state: "Open",

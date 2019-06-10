@@ -1,0 +1,2 @@
+class CasePlacesController < ApplicationController
+end

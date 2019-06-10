@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'cases#index'
+  root to: 'pages#home'
   resources :cases do
     resources :case_safety_factors, only: [:index, :new, :create, :edit, :update]
     resources :case_actions, only: [:index, :new, :create]

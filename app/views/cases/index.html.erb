@@ -7,5 +7,12 @@
     <p class="card-text"><%= c.summary %></p>
     <p class="card-delete mt-2"><%= link_to "VIEW", case_path(c), class: 'btn btn-secondary rounded-pill btn-sm' %> &nbsp <%= link_to "DELETE", case_path(c), class: 'btn btn-secondary rounded-pill btn-sm', method: :delete %></p>
   </div>
+  <div
+    id="map"
+    style="width: 100%;
+    height: 600px;"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
   <% end %>
 </div>

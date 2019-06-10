@@ -5,6 +5,15 @@ class CasesController < ApplicationController
   def index
     @cases = policy_scope(Case).order(created_at: :desc)
     # raise
+    @cases = Case.where.not(latitude: nil, longitude: nil)
+
+    @markers = @cases.map do |c|
+      {
+        lat: c.latitude,
+        lng: c.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { c: c })
+      }
+    end
   end
 
   def show

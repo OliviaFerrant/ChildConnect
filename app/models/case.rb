@@ -1,4 +1,6 @@
 class Case < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
   has_many :case_risks
   has_many :risk, through: :case_risks

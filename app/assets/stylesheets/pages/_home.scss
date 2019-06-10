@@ -90,8 +90,12 @@ a:active {
 
 .btn {
   font-family: 'Open Sans', sans-serif;
+  color: #FFFFFF !important;
   font-size: 15px;
   text-decoration: none;
+  width: 200px;
+  height: 45px;
+  background: #38417D;
 }
 
 .cards {
@@ -143,6 +147,9 @@ a:active {
   color: #393D40;
 }
 
+.id {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

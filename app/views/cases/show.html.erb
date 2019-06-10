@@ -7,12 +7,12 @@
     <p class="p-1">Phone Numbers: <%= @case.phone_number %></a></p>
     <p class="p-1">Summary: <%= @case.summary %></a></p>
     <p class="p-1">Status: <%= @case.state %></a></p>
-    <%= link_to "ADD NEXT ACTION", new_case_case_action_path(@case), class: 'btn btn-secondary rounded-pill m-2 ml-5' %>
+    <%= link_to "ADD NEXT ACTION", new_case_case_action_path(@case), class: 'btn btn-lg m-2 ml-5' %>
   </div>
 </div>
 
 
-<div id="map" style="width: 400px; height: 400px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<div class="map mt-5 p-5 mb-5" id="map" style="width: 400px; height: 400px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 
 

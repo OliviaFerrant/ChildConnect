@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :case_actions, only: [:destroy, :edit, :update]
   resources :case_risks, only: :destroy
   resources :case_safety_factors, only: :destroy
+  resources :places, only: [:edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

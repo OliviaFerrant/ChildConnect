@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-  before_action :set_case
+  before_action :set_case, only: [:new, :create]
 
   def new
     @place = Place.new

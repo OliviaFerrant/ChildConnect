@@ -1,5 +1,7 @@
 class Case < ApplicationRecord
   mount_uploader :photo, PhotoUploader
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   # belongs_to :user
   has_many :case_risks, dependent: :destroy
   has_many :risk, through: :case_risks
@@ -15,7 +17,6 @@ class Case < ApplicationRecord
   validates :address, presence: true
   validates :phone_number, presence: true
   validates :summary, presence: true
-
 
   COLORS = ["bg-light", "bg-warning", "bg-danger"]
 

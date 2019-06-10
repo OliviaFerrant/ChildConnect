@@ -1,3 +1,6 @@
+body {
+  background-color: #000000;
+}
 h1, h2, h3, h4 {
   font-family: 'Roboto Condensed', sans-serif;
 }
@@ -17,9 +20,35 @@ p {
   margin-bottom: 3px;
 }
 
+.banner-container {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  min-height: (100vh - 10vh);
+  width: 100%;
+}
+
+.banner-container h1 {
+  margin: 20px;
+  color: #FFFFFF;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 80px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.banner-container p {
+  font-size: 20px;
+  font-family: 'Asap Condensed', sans-serif;
+  color: #FFFFFF;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
 
 .btn {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
   text-decoration: none;
 }
 
@@ -33,7 +62,7 @@ p {
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
   background-color: #212227;
-  font-family: 'Asap Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color: #D3E4FF;
   cursor: pointer;
   padding: 10px;
@@ -62,6 +91,14 @@ p {
 }
 
 
+//banner
+
+@media screen and (max-width: 1024px) {
+  .banner {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {

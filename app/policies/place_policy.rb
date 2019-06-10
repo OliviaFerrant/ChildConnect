@@ -1,11 +1,10 @@
-class CasePolicy < ApplicationPolicy
+class PlacePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
-
-  def show?
+  def index?
     true
   end
 
@@ -14,11 +13,10 @@ class CasePolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    user_is_owner?
   end
 
   def destroy?
-    true
+    user_is_owner?
   end
-
 end

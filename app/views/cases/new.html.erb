@@ -5,15 +5,15 @@
       <h3>Add A New Case</h3>
       <p class="mb-4">All fields are mandatory.</p>
       <%= simple_form_for @case do |f| %>
-        <%= f.input :case_number, input_html: { style: "width:80%" } %>
-        <%= f.input :child_name, label: 'Subject Children', placeholder: 'Use "," when you add more than one child', error: 'Subject Children is mandatory, please specify one', input_html: { style: "width:80%" }  %>
-        <%= f.input :family_name, label: 'Case Name', error: 'Case Name is mandatory, please specify one', input_html: { style: "width:80%" } %>
-        <%= f.input :address, input_html: { style: "width:80%" } %>
-        <%= f.input :phone_number, placeholder: 'Use "," when you add more than one phone number', input_html: { style: "width:80%" } %>
-        <%= f.input :summary, input_html: { style: "width:80%"}, as: :text %>
-        <%= f.input :start_date, as: :string, class: 'datepicker', input_html: { style: "width:80%" } %>
+        <%= f.input :start_date, label: 'Open Date', required: true, as: :string, placeholder: 'MM/DD/YYYY', input_html: { class: 'input', style: "width:70%" } %>
+        <%= f.input :case_number, label: 'Case Number', input_html: { class: "input", style: "width:70%" }, placeholder: 'NY12345' %>
+        <%= f.input :child_name, label: 'Subject Child/Children', placeholder: 'Use "," when adding more than one child', error: 'Subject Children is mandatory, please specify one', input_html: { class: "input",style: "width:70%" }  %>
+        <%= f.input :family_name, label: 'Case Name', input_html: { class: "input",style: "width:70%" }, placeholder: 'Last name, First name' %>
+        <%= f.input :address, label: 'Case Address', input_html: { class: "input",style: "width:70%" }, placeholder: '70 Tudor Lane' %>
+        <%= f.input :phone_number, label: 'Phone number(s)', placeholder: 'Use "," when adding more than one phone number', input_html: { class: "input", style: "width:70%" } %>
+        <%= f.input :summary, label: 'Case Summary', input_html: { class: "input", style: "height:150px; width:70%"}, as: :text, placeholder: 'Write a basic summary about your case' %>
         <%= f.full_error :token %>
-        <%= f.submit "  ADD CASE  ", class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
+        <%= f.submit "  ADD CASE  ", class: 'btn btn-secondary rounded-pill btn-sm m-2 p-2' %>
       <% end %>
       </div>
     </div>

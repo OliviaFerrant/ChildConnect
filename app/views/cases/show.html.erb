@@ -6,12 +6,13 @@
     <p class="p-1">Address: <%= @case.address %></a></p>
     <p class="p-1">Phone Numbers: <%= @case.phone_number %></a></p>
     <p class="p-1">Summary: <%= @case.summary %></a></p>
-    <p class="p-1"><strong>Status: <%= @case.state %></a></strong></p>
+    <p class="p-1">Status: <%= @case.state %></a></p>
+    <%= link_to "ADD NEXT ACTION", new_case_case_action_path(@case), class: 'btn btn-secondary rounded-pill m-2 ml-5' %>
   </div>
 </div>
 
 
-
+<div id="map" style="width: 400px; height: 400px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 
 
@@ -44,7 +45,6 @@
           <p class="p-3"><%= link_to "ADD NEW NOTE", edit_case_action_path(act), class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %></p>
         </div>
         <% end %>
-          <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
       </div>
     </div>
   </div>

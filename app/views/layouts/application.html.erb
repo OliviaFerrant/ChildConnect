@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title>ChildConnect</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <link href="https://fonts.googleapis.com/css?family=Asap+Condensed&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cantarell:400,400i,700,700i|Fjalla+One&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="page-container">
@@ -17,6 +19,11 @@
       </div>
       <div class="yield-container">
         <%= yield %>
+      </div>
+      <div class="footer">
+        <% unless action_name == "home" %>
+        <%= render "layouts/footer" %>
+        <% end %>
       </div>
     </div>
     <%= javascript_include_tag 'application' %>

@@ -5,11 +5,12 @@
       <h3 class="mb-3">New Case Note</h3>
       <%= simple_form_for [@case, @case_action] do |f| %>
       <p><h6>Case Status:</h6>
-        <%= f.collection_radio_buttons :status, [['No Changes'],['Court'], ['Close Case']], :first, :last, input_html: { class: "input"} %></p>
+        <%= f.collection_radio_buttons :status, [['No Changes'],['Court'], ['Close Case']], :first, :last, input_html: { class: "input"}, checked: 'No Changes' %></p>
         <%= f.input :report, label: 'Case Note:', input_html: { class: "input", style: "height:150px; width:70%"}, as: :text %>
         <%= f.full_error :token %>
         <p>
-          <%= f.submit 'ADD NOTE ', class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
+          <%= link_to "BACK", case_path(id: @case_action.case_id), class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
+          <%= f.submit ' ADD NOTE ', class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>
         </p>
       </div>
       <% end %>

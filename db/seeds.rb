@@ -1,3 +1,4 @@
+require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -6,8 +7,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "cleaning db..."
-Risk.destroy_all
-puts "creating seeds..."
+User.destroy_all
+CaseSafetyFactor.destroy_all
+CaseRisk.destroy_all
+CaseAction.destroy_all
+Case.destroy_all
 risks = [
     "1. Total prior reports for adults and children in RAP family unit.",
     "2. Any child in the RAP family unit was in the care of custody any substitute caregivers at any time prior to the current report date.",
@@ -48,12 +52,29 @@ safety_factors = [
     "19. No Safety Factors present at this time."
 ]
 
+puts "creating risks"
 risks.each do |risk|
     Risk.create(category: risk)
 end
-
+puts "creating safety factors"
 safety_factors.each do |sf|
     SafetyFactor.create(fact: sf)
 end
+puts "creating user"
+User.create!(email: "thomasferrant@hotmail.fr", password: "secret")
 
+puts "creating Cases"
+10.times do |c|
+    Case.create!(
+        address: Faker::Address.full_address,
+        family_name: Faker::Name.last_name,
+        child_name: Faker::Name.first_name,
+        state: "Open",
+        # start_date: Date.today,
+        # end_date: start_date + 60,
+        case_number: rand(12345...99999),
+        phone_number: Faker::PhoneNumber.phone_number,
+        summary: Faker::Lorem.paragraph
+    )
+    end
 puts "all done !"

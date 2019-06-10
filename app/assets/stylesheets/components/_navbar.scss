@@ -1,24 +1,12 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background: white;
-// }
-
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
-
 .navbar-brand {
-  color: #D3E4FF;
+  font-size: 2em;
+  color: #393D40;
   padding: 7px;
 }
 
 .dropdown-menu {
-  color: #EFF8FF;
-  background-color: #212227;
+  color: #393D40;
+  background-color: #FFFFFF;
   padding: 7px;
 }
 
@@ -26,13 +14,18 @@
   margin: 0 auto;
   padding: 0;
   width: 100%;
-  color: #EFF8FF;
-  background-color: #212227;
+  height: 70px;
+  color: #393D40;
+  background-color: #FFFFFF;
   font-family: 'Roboto Condensed', sans-serif;
+}
+
+.navbar-nav {
+  font-size: 1.2em;
 }
 
 .navbar a {
   font-family: 'Roboto Condensed', sans-serif;
-  color: #E8F4FF;
+  color: #393D40;
 }
 

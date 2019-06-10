@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(version: 2019_06_10_031149) do
     t.index ["user_id"], name: "index_cases_on_user_id"
   end
 
+  create_table "places", force: :cascade do |t|
+    t.string "address"
+    t.bigint "case_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["case_id"], name: "index_places_on_case_id"
+  end
+
   create_table "risks", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -96,4 +104,5 @@ ActiveRecord::Schema.define(version: 2019_06_10_031149) do
   add_foreign_key "case_safety_factors", "cases"
   add_foreign_key "case_safety_factors", "safety_factors"
   add_foreign_key "cases", "users"
+  add_foreign_key "places", "cases"
 end

@@ -6,3 +6,35 @@
   background-color: #212227;
   font-family: 'Roboto Condensed', sans-serif;
 }
+
+// .logo-nyc {
+//     text-indent: 100%;
+//     white-space: nowrap;
+//     overflow: hidden;
+//     width: 93px;
+//     height: 31px;
+//     display: block;
+//     background-image: url(/assets/images/NYC-logo.png);
+//     background-size: 93px 31px;
+//     float: left;
+//     margin-right: 10px;
+//     color: #fff;
+// }
+
+// .a:link { color: #fff; }
+
+// .a:hover { color: #ff0000; }
+// .a:active { color: #ff8000; }
+
+a:link {
+    color: #f4f7f8;
+}
+
+a:hover {
+    color: pink;
+}
+/* A link that is selected */
+a:active {
+    color: #D183C9;
+}
+// a:visited { color: #f4f7f8; }

@@ -1,4 +1,23 @@
-<div class="container">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://res.cloudinary.com/louixa/image/upload/v1560155649/Untitled-1_dsd78u.jpg);">
+  <div class="container">
+    <h1 class="p-1"><%= @case.family_name %></h1>
+    <p class="p-1">Case #: <%= @case.case_number %></a></p>
+    <p class="p-1">Subject Child/Children: <%= @case.child_name %></a></p>
+    <p class="p-1">Address: <%= @case.address %></a></p>
+    <p class="p-1">Phone Numbers: <%= @case.phone_number %></a></p>
+    <p class="p-1">Summary: <%= @case.summary %></a></p>
+    <p class="p-1"><strong>Status: <%= @case.state %></a></strong></p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="container">
   <div class="row">
     <div class="col-3">
       <div class="card-body shadow-sm pt-4 mt-5 bg-white rounded">
@@ -47,3 +66,4 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 </script>
+ -->

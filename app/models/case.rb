@@ -29,14 +29,22 @@ class Case < ApplicationRecord
     # 3 - get the closest due date from today, that is in the future, and is not set as finish
   end
 
+  def priority_action_date
+    priority_next_action = case_actions.where(status: nil).order(:due_date).first
+    if !priority_next_action
+      return ""
+    else
+      "Due: " + priority_next_action.due_date.to_s
+    end
+  end
+
   def priority_action
     priority_next_action = case_actions.where(status: nil).order(:due_date).first
     if !priority_next_action
       return ""
     else
-      priority_next_action.title + " | Due:" + priority_next_action.due_date.to_s
+      priority_next_action.title
     end
-
   end
 
   def my_priority

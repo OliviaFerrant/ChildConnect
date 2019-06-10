@@ -3,15 +3,16 @@ class CasesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @cases = policy_scope(Case).order(created_at: :desc)
+    # @cases = policy_scope(Case).order(created_at: :desc)
     # raise
-    @cases = Case.where.not(latitude: nil, longitude: nil)
+    @cases = policy_scope(Case).where.not(latitude: nil, longitude: nil)
 
     @markers = @cases.map do |c|
       {
         lat: c.latitude,
         lng: c.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { c: c })
+        # infoWindow: render_to_string(partial: "infowindow", locals: { c: c }),
+        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end
   end

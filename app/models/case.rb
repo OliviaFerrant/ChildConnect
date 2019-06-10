@@ -4,6 +4,7 @@ class Case < ApplicationRecord
   has_many :risk, through: :case_risks
   has_many :case_actions, dependent: :destroy
   has_many :titles, through: :case_actions
+  has_many :places
   # validates :start_date, presence: true
   # validates :end_date, presence: true
   # validates :state, presence: true

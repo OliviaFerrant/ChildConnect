@@ -1,3 +1,9 @@
+body {
+  background-color: #FCF9F9;
+  padding: 0;
+  margin: 0 auto;
+}
+
 h1, h2, h3, h4 {
   font-family: 'Roboto Condensed', sans-serif;
 }
@@ -36,6 +42,11 @@ a:hover {
 a:active {
   color: #7776B1;
   text-decoration: none;
+}
+
+.photo-upload {
+  text-align: center;
+  margin-left: 300px;
 }
 
 .banner-container {
@@ -193,6 +204,74 @@ a:active {
 
 .id {
   border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.home-container {
+  position: absolute;
+  width: 864px;
+  height: 648px;
+  left: 144px;
+  top: 70px;
+  background: #FCF9F9;
+}
+
+.home-title {
+  position: absolute;
+  width: 402px;
+  height: 88px;
+  left: 80px;
+  top: 189px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 133.68%;
+  /* or 48px */
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.06em;
+  color: #333333;
+
+}
+
+.home-description {
+  position: absolute;
+  width: 231px;
+  height: 93px;
+  left: 80px;
+  top: 260px;
+  font-family: 'Asap Condensed', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 21px;
+  /* or 175% */
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.06em;
+  color: #333333;
+  padding: 5px;
+}
+
+
+.home-button {
+  position: absolute;
+  width: 231px;
+  height: 53px;
+  left: 80px;
+  top: 340px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.085em;
+}
+
+.home-img {
+  position: absolute;
+  width: 639px;
+  height: 491px;
+  left: 460px;
+  top: 150px;
 }
 
 // Smallest device

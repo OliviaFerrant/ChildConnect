@@ -8,7 +8,7 @@
     <p class="p-1">Phone Numbers: <%= @case.phone_number %></p>
     <p class="p-1">Summary: <%= @case.summary %></p>
     <p class="p-1">Status: <%= @case.state %></p>
-    <%= link_to "  ADD NEXT ACTION  ", new_case_case_action_path(@case), class: 'btn btn-secondary rounded-pill btn-sm m-2 p-2' %>
+    <%= link_to "BACK", cases_path(@case), class: 'btn btn-secondary rounded-pill btn-sm p-2' %> &nbsp <%= link_to "  ADD NEXT ACTION  ", new_case_case_action_path(@case), class: 'btn btn-secondary rounded-pill btn-sm m-2 p-2' %>
   </div>
 </div>
 

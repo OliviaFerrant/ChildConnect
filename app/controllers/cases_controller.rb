@@ -5,7 +5,7 @@ class CasesController < ApplicationController
   def index
     # @cases = policy_scope(Case).order(created_at: :desc)
     # raise
-    @cases = policy_scope(Case).where.not(latitude: nil, longitude: nil)
+    @cases = policy_scope(Case)
 
     @markers = @cases.map do |c|
       {
@@ -19,6 +19,10 @@ class CasesController < ApplicationController
 
   def show
     @case_actions = CaseAction.where(case: @case).order(title: :asc)
+    lat = @case.latitude
+    lng = @case.longitude
+    coord = [{lat: lat, lng: lng}]
+    @markers = coord
     authorize @case
   end
 

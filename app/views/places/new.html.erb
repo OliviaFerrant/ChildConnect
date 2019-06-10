@@ -1,0 +1,16 @@
+<center>
+  <div class="forms-container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-8">
+      <h3>List your case</h3>
+      <div class="gap-30"></div>
+      <p>Please fill in the form. (*) are mandatory columns.</p>
+      <%= simple_form_for [@case, @place] do |cp| %>
+        <%= cp.input :address %>
+        <%= cp.full_error :token %>
+        <%= cp.submit 'Add place', class: "btn btn-outline-dark" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</center>

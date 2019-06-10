@@ -1,54 +1,50 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://res.cloudinary.com/louixa/image/upload/v1560155649/Untitled-1_dsd78u.jpg);">
   <div class="container">
     <h1 class="p-1"><%= @case.family_name %></h1>
-    <p class="p-1">Case #: <%= @case.case_number %></a></p>
-    <p class="p-1">Subject Child/Children: <%= @case.child_name %></a></p>
-    <p class="p-1">Address: <%= @case.address %></a></p>
-    <p class="p-1">Phone Numbers: <%= @case.phone_number %></a></p>
-    <p class="p-1">Summary: <%= @case.summary %></a></p>
-    <p class="p-1">Status: <%= @case.state %></a></p>
+    <p class="p-1">Date Opened: <%= @case.start_date %></p>
+    <p class="p-1">Case #: <%= @case.case_number %></p>
+    <p class="p-1">Subject Child/Children: <%= @case.child_name %></p>
+    <p class="p-1">Address: <%= @case.address %></p>
+    <p class="p-1">Phone Numbers: <%= @case.phone_number %></p>
+    <p class="p-1">Summary: <%= @case.summary %></p>
+    <p class="p-1">Status: <%= @case.state %></p>
     <%= link_to "  ADD NEXT ACTION  ", new_case_case_action_path(@case), class: 'btn btn-secondary rounded-pill btn-sm m-2 p-2' %>
   </div>
 </div>
 
-
-<div class="map mt-5 p-5 mb-5" id="map" style="width: 400px; height: 400px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
-
-
-
-
-<!-- <div class="container">
-  <div class="row">
-    <div class="col-3">
-      <div class="card-body shadow-sm pt-4 mt-5 bg-white rounded">
-        <h5 class="card-title"><%= @case.family_name %></h5>
-        <p>Case #:<a class="card-subtitle text-muted"> <%= @case.case_number %></a></p>
-        <p>Subject Children:<a class="card-subtitle text-muted"> <%= @case.child_name %></a></p>
-        <p>Address:<a class="card-subtitle text-muted"> <%= @case.address %></a></p>
-        <p>Phone Numbers:<a class="card-subtitle text-muted"> <%= @case.phone_number %></a></p>
-        <p>Summary:<a class="card-subtitle text-muted"> <%= @case.summary %></a></p>
-        <p><strong>Status:<a class="card-subtitle text-muted"> <%= @case.state %></a></strong></p>
-        <p class="card-safety"><%=link_to "Safety Factors", case_case_safety_factors_path(@case)   %></p>
-      </div>
-          <%= link_to "ADD NEXT ACTION", new_case_case_action_path(@case), class: 'btn btn-secondary rounded-pill m-2 ml-5' %>
-
+<div class="row">
+  <div class="col">
+    <div class="map mt-5 ml-5 mb-5" id="map" style="width: 400px; height: 400px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div class="row cards ml-1 pl-5 pb-5">
+    <div class="show-card p-3 mb-3 mr-3 bg-white">
+      <h3>SAFETY FACTORS</h3>
+      <p>safety factors here</p>
     </div>
-      <div class="col-9 card-accordion shadow-sm pt-4 mt-5 bg-white rounded">
-        <h5>CASE NOTES</h5>
-        <% @case_actions.each do |act| %>
-        <button class="accordion mt-2"><%= act.title %>| <%= act.due_date %></button>
-        <div class="panel"><p class="p-3 m-3"><%= act.description %></p>
-         <hr>
-          <p class="p-3"><%= act.report %></p>
-          <hr>
-          <p class="p-3"><%= link_to "ADD NEW NOTE", edit_case_action_path(act), class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %></p>
-        </div>
-        <% end %>
+    </div>
+        <div class="row cards ml-1 pl-5 pb-5">
+    <div class="show-card p-3 mb-3 mr-3 bg-white">
+      <h3>RISK FACTORS</h3>
+      <p>risk factors here</p>
+    </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="col-12 card-accordion pt-4 mt-5 bg-white rounded">
+      <h5>CASE NOTES</h5>
+      <% @case_actions.each do |act| %>
+      <button class="accordion mt-2"><%= act.title %>| DUE: <%= act.due_date %></button>
+      <div class="panel">
+        <p class="p-3"><%= act.report %></p>
+        <p class="p-3"><%= link_to "ADD NEW NOTE", edit_case_action_path(act), class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %></p>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+
+
+
 
 <script>
 const acc = document.getElementsByClassName("accordion");
@@ -66,4 +62,3 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 </script>
- -->

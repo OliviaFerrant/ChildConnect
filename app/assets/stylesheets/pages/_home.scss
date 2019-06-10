@@ -69,6 +69,7 @@ a:active {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
+  height: 500px;
 }
 
 .banner h1 {
@@ -99,9 +100,30 @@ a:active {
   border: 0;
 }
 
+.btn-index {
+  font-family: 'Open Sans', sans-serif;
+  color: #FFFFFF !important;
+  font-size: 12px;
+  text-decoration: none;
+  width: 110px;
+  height: 32px;
+  background: #38417D;
+  border: 0;
+}
+
 .cards {
   font-family: 'Asap Condensed', sans-serif;
+  margin: 0 auto;
+  padding: 0;
 }
+
+.show-card {
+  width: 400px;
+  height: 160px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  }
 
 .card-case {
   position: relative;
@@ -109,7 +131,6 @@ a:active {
   height: 160px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
   border-radius: 3px;
   // width: 100%;
   // height: 100%;
@@ -126,14 +147,24 @@ a:active {
   width: 300px;
   height: 156px;
   left: 252px;
-  top: -137px;
+  top: -110px;
+}
+
+.card-accordion {
+  overflow: hidden;
+  margin-left: -40px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  width: 800px;
+  height: 800px;
 }
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
-  background-color: #FFFFFF;
+  background-color: #38417D;
   font-family: 'Open Sans', sans-serif;
-  color: #393D40;
+  font-size: 12px;
+  color: #FFFFFF;
   cursor: pointer;
   padding: 10px;
   width: 100%;
@@ -145,7 +176,7 @@ a:active {
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .accordion:hover {
-  background-color: #8693AB;
+  background-color: #686F75;
 }
 
 /* Style the accordion panel. Note: hidden by default */

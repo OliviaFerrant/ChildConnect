@@ -1,4 +1,7 @@
 class Case < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+  belongs_to :user
   # belongs_to :user
   has_many :case_risks, dependent: :destroy
   has_many :risk, through: :case_risks
@@ -15,13 +18,12 @@ class Case < ApplicationRecord
   validates :phone_number, presence: true
   validates :summary, presence: true
 
-
   COLORS = ["bg-light", "bg-warning", "bg-danger"]
 
   def next_action
     #@case = Case.all
     case_actions.where(status: nil).order(:due_date).first
-    
+
     # 1 - get all my case_actions for this case
     # 2 - sort them by due date
     # 3 - get the closest due date from today, that is in the future, and is not set as finish
@@ -36,7 +38,7 @@ class Case < ApplicationRecord
     end
 
   end
-    
+
   def my_priority
     next_case_action = next_action
     if !next_case_action
@@ -49,7 +51,7 @@ class Case < ApplicationRecord
     else
       return 0
     end
-    
+
     # 1 - find the next action which will happen the sooner
     # 2 - evaluate the priority of the action from 0 to 2
     # 3 - return the priority

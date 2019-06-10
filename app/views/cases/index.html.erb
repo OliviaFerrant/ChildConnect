@@ -5,7 +5,7 @@
   <div class="card-case p-3 mb-2 bg-white">
     <h5 class="card-title"><%= c.family_name %> | <%= c.start_date %></h5>
     <h6 class="card-subtitle text-muted">Case #: <%= c.case_number %></h6>
-    <button class="btn btn-sm m-2 p-2 <%= c.priority_color %>" type="submit"><%= c.priority_action %></button>
+    <button class="btn btn-sm m-2 p-2 <%= c.priority_color %>"><%= c.priority_action %></button>
     <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
   <% end %>

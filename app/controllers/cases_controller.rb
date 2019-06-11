@@ -5,16 +5,8 @@ class CasesController < ApplicationController
   def index
     # @cases = policy_scope(Case).order(created_at: :desc)
     # raise
-    @cases = policy_scope(Case)
-
-    @markers = @cases.map do |c|
-      {
-        lat: c.latitude,
-        lng: c.longitude,
-        # infoWindow: render_to_string(partial: "infowindow", locals: { c: c }),
-        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
-      }
-    end
+    @urgent_cases = policy_scope(Case.joins(:case_actions)).where("case_actions.due_date = ?", Date.today)
+    @cases = policy_scope(Case).where.not(id: @urgent_cases)
   end
 
   def show

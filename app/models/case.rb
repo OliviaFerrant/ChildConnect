@@ -68,4 +68,13 @@ class Case < ApplicationRecord
   def priority_color
     COLORS[my_priority]
   end
+
+  def markers
+    [{
+        lat: latitude,
+        lng: longitude,
+        # infoWindow: render_to_string(partial: "infowindow", locals: { c: c }),
+        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }]
+  end
 end

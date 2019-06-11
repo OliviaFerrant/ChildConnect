@@ -5,6 +5,7 @@ class PlacesController < ApplicationController
     @place = Place.new
     authorize @place
   end
+
   def create
     @place = Place.new(place_params)
     authorize @place
@@ -33,6 +34,7 @@ class PlacesController < ApplicationController
     authorize @place
     @place.destroy
     redirect_to case_path(@path)
+  end
 
   private
 

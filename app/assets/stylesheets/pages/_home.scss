@@ -46,7 +46,7 @@ a:active {
 
 .photo-upload {
   text-align: center;
-  margin-left: 300px;
+  margin-left: 50%;
 }
 
 .banner-container {
@@ -80,7 +80,7 @@ a:active {
   background-size: cover;
   background-position: center;
   padding: 150px 0;
-  height: 500px;
+  height: 300px;
 }
 
 .banner h1 {
@@ -98,6 +98,31 @@ a:active {
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.show-container {
+  display: flex;
+}
+
+.description-container {
+  width: 300px;
+}
+
+.notes-container {
+  flex-grow: 1;
+}
+
+.card-accordion {
+  overflow: hidden;
+  height: 100%;
+  padding: 20px;
+}
+
+
+#map {
+  height: 100vh;
+  flex: 0 0 300px;
+  top: 0;
 }
 
 .btn {
@@ -134,9 +159,10 @@ a:active {
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 3px;
-  }
+}
 
 .card-case {
+  display: flex;
   position: relative;
   width: 570px;
   height: 160px;
@@ -153,22 +179,13 @@ a:active {
   // border-radius: 3px;
 }
 
-.map-card {
-  position: relative;
-  width: 300px;
-  height: 156px;
-  left: 252px;
-  top: -110px;
-}
-
-.card-accordion {
-  overflow: hidden;
-  margin-left: -40px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  width: 800px;
-  height: 800px;
-}
+// .map-card {
+//   position: relative;
+//   width: 300px;
+//   height: 156px;
+//   left: 252px;
+//   top: -110px;
+// }
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
@@ -188,14 +205,6 @@ a:active {
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .accordion:hover {
   background-color: #686F75;
-}
-
-/* Style the accordion panel. Note: hidden by default */
-.panel {
-  padding: 0 10px;
-  background-color: white;
-  display: none;
-  overflow: hidden;
 }
 
 .card-safety a {

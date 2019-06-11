@@ -1,49 +1,31 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://res.cloudinary.com/louixa/image/upload/v1560155649/Untitled-1_dsd78u.jpg);">
-  <div class="container">
-    <h1 class="p-1"><%= @case.family_name %></h1>
-    <p class="p-1">Date Opened: <%= @case.start_date %></p>
-    <p class="p-1">Case #: <%= @case.case_number %></p>
-    <p class="p-1">Subject Child/Children: <%= @case.child_name %></p>
-    <p class="p-1">Address: <%= @case.address %></p>
-    <p class="p-1">Phone Numbers: <%= @case.phone_number %></p>
-    <p class="p-1">Summary: <%= @case.summary %></p>
-    <p class="p-1">Status: <%= @case.state %></p>
-    <%= link_to "BACK", cases_path(@case), class: 'btn btn-secondary rounded-pill btn-sm p-2' %> &nbsp <%= link_to "  ADD NEXT ACTION  ", new_case_case_action_path(@case), class: 'btn btn-secondary rounded-pill btn-sm m-2 p-2' %>
-  </div>
-</div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://res.cloudinary.com/louixa/image/upload/v1560225253/bernard-hermant-1065742-unsplash_wfuuxq.jpg);"></div>
 
-<div class="row">
-  <div class="col">
-    <div class="map mt-5 ml-5 mb-5" id="map" style="width: 400px; height: 400px;" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    <div class="row cards ml-1 pl-5 pb-5">
-    <div class="show-card p-3 mb-3 mr-3 bg-white">
-      <h3>SAFETY FACTORS</h3>
-      <p>safety factors here</p>
+  <div class="show-container">
+    <div class="description-container card-accordion">
+      <h1 class="p-1"><%= @case.family_name %></h1>
+      <p class="p-1">Date Opened: <%= @case.start_date %></p>
+      <p class="p-1">Case #: <%= @case.case_number %></p>
+      <p class="p-1">Subject Child/Children: <%= @case.child_name %></p>
+      <p class="p-1">Address: <%= @case.address %></p>
+      <p class="p-1">Phone Numbers: <%= @case.phone_number %></p>
+      <p class="p-1">Summary: <%= @case.summary %></p>
+      <p class="p-1">Status: <%= @case.state %></p>
+      <%= link_to "  ADD NEXT ACTION  ", new_case_case_action_path(@case), class: 'btn btn-secondary rounded-pill btn-sm p-2 mt-2' %>
     </div>
-    </div>
-        <div class="row cards ml-1 pl-5 pb-5">
-    <div class="show-card p-3 mb-3 mr-3 bg-white">
-      <h3>RISK FACTORS</h3>
-      <p>risk factors here</p>
-    </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="col-12 card-accordion pt-4 mt-5 bg-white rounded">
-      <h5>CASE NOTES</h5>
-      <% @case_actions.each do |act| %>
-      <button class="accordion mt-2"><%= act.title %>| DUE: <%= act.due_date %></button>
-      <div class="panel">
-        <p class="p-3"><%= act.report %></p>
-        <p class="p-3"><%= link_to "ADD NEW NOTE", edit_case_action_path(act), class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %></p>
+      <div class="notes-container card-accordion">
+        <h1>Case Notes</h1>
+          <% @case_actions.each do |act| %>
+          <button class="accordion mt-2"><%= act.title %>| DUE: <%= act.due_date %></button>
+          <div class="panel">
+          <p class="p-3"><%= act.report %></p>
+          <p class="p-3"><%= link_to "ADD NEW NOTE", edit_case_action_path(act), class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %></p>
+          </div>
+          <% end %>
       </div>
-      <% end %>
-    </div>
-  </div>
+      <div id="map" data-markers="<%= @markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
 
 
-<%= cl_image_tag @case.photo, height: 300, width: 400, crop: :fill %>
 
 
 <script>

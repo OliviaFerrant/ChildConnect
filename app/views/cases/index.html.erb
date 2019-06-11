@@ -2,33 +2,37 @@
   <h1 class="main-card-title mt-3 pb-2 pt-3 pl-5 pr-5">URGENT</h1>
   <div class="row cards ml-1 pl-5 pb-5">
     <% @urgent_cases.each do |c| %>
-    <%= link_to case_path(c) do %>
-    <div class="card-case col p-3 mb-3 mr-3 bg-white">
-      <h5 class="card-title"><%= c.family_name %> | Date Opened: <%= c.start_date %></h5>
-      <h6 class="card-subtitle text-muted">Case #: <%= c.case_number %></h6>
-      <p><%= c.priority_action %></p>
-      <p class="btn-index btn-sm mt-2 p-2 <%= c.priority_color %>"><%= c.priority_action_date %></p>
-      <div class="map-card build-map" id="map-<%= c.id %>" data-markers="<%= c.markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    </div>
-    <% end %>
+      <%= link_to case_path(c) do %>
+      <div class="card-case col p-3 mb-3 mr-3 bg-white">
+        <h5 class="card-title"><%= c.family_name %> | Date Opened: <%= c.start_date %></h5>
+        <h6 class="card-subtitle text-muted">Case #: <%= c.case_number %></h6>
+        <p><%= c.priority_action %></p>
+        <p class="btn-index btn-sm mt-2 p-2 <%= c.priority_color %>"><%= c.priority_action_date %></p>
+        <div class="map-card build-map" id="map-<%= c.id %>" data-markers="<%= c.markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+      </div>
+      <% end %>
     <% end %>
   </div>
 <% end %>
 
-
+<!--
 <h1 class="main-card-title mt-3 pb-2 pt-3 pl-5 pr-5">MY CASES</h1>
-<div class="row cards ml-1 pl-5 pb-5">
+
+<div class="cards d-flex flex-row">
   <% @cases.each do |c| %>
   <%= link_to case_path(c) do %>
-  <div class="card-case col p-3 mb-3 mr-3 bg-white">
-    <h5 class="card-title"><%= c.family_name %> | <%= c.start_date %></h5>
+  <div class="card-case align-self-start bg-white">
+    <h5><%= c.family_name %> | Date Opened: <%= c.start_date %></h5>
     <h6 class="card-subtitle text-muted">Case #: <%= c.case_number %></h6>
-    <p><%= c.priority_action %></p>
-    <p class="btn-index btn-sm mt-2 p-2 <%= c.priority_color %>"><%= c.priority_action_date %></p>
-
+  </div>
+    <div class="align-self-center">
+      <p><%= c.priority_action %></p>
+      <p class="btn-index btn-sm mt-2 p-2 <%= c.priority_color %>"><%= c.priority_action_date %></p>
+    </div>
   </div>
   <% end %>
   <% end %>
 </div>
 
 
+ -->

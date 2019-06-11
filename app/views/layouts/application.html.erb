@@ -25,11 +25,11 @@
         <div class="yield-container">
           <%= yield %>
         </div>
-        <div class="footer">
           <% unless action_name == "home" %>
-          <%= render "layouts/footer" %>
-          <% end %>
-        </div>
+          <div class="footer">
+            <%= render "layouts/footer" %>
+          </div>
+        <% end %>
       </div>
     </div>
     <%= javascript_include_tag 'application' %>

@@ -1,12 +1,13 @@
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
-const mapElement = document.getElementById('map');
+const mapElements = document.querySelectorAll('.build-map');
 
-const buildMap = () => {
+const buildMap = (mapElement) => {
+  console.log(mapElement);
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
-    container: 'map',
+    container: mapElement.id,
     style: 'mapbox://styles/mapbox/streets-v9'
   });
 };
@@ -29,12 +30,14 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const initMapbox = () => {
-  if (mapElement) {
-    const map = buildMap();
-    const markers = JSON.parse(mapElement.dataset.markers);
-    addMarkersToMap(map, markers);
-    fitMapToMarkers(map, markers);
-  }
+  if (mapElements) {
+    mapElements.forEach((mapElement) => {
+      const map = buildMap(mapElement);
+      const markers = JSON.parse(mapElement.dataset.markers);
+      addMarkersToMap(map, markers);
+      fitMapToMarkers(map, markers);
+    });
+  };
 };
 
 export { initMapbox };

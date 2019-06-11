@@ -5,19 +5,19 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $body-font, sans-serif;
 }
 
 label {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $body-font, sans-serif;
 }
 
 h5, h6 {
-  font-family: 'Asap Condensed', sans-serif;
+  font-family: $body-font, sans-serif;
 }
 
 p {
-  font-family: 'Asap Condensed', sans-serif;
+  font-family: $body-font, sans-serif;
   font-size: 14px;
   line-height: 15px;
   margin-bottom: 3px;
@@ -138,6 +138,10 @@ a:active {
   border: 0;
 }
 
+.btn-sm {
+  font-size: .875rem !important;
+}
+
 .btn-index {
   font-family: 'Open Sans', sans-serif;
   color: #FFFFFF !important;
@@ -150,7 +154,7 @@ a:active {
 }
 
 .cards {
-  font-family: 'Asap Condensed', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 0;
@@ -175,8 +179,7 @@ a:active {
 
 .card-case {
   display: flex;
-  width: 520px;
-  height: 220px;
+  height: 160px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 3px;

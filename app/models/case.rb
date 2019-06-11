@@ -18,7 +18,7 @@ class Case < ApplicationRecord
   validates :phone_number, presence: true
   validates :summary, presence: true
 
-  COLORS = ["bg-light", "bg-warning", "bg-danger"]
+  COLORS = ["bg-secondary", "bg-warning", "bg-danger"]
 
   def next_action
     #@case = Case.all

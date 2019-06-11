@@ -1,45 +1,54 @@
-<% if @urgent_cases.any? %>
-<h1 class="main-card-title pb-2 pt-3 pl-5 pr-5">URGENT</h1>
-<div class="cards flex-row">
-    <% @urgent_cases.each do |c| %>
-      <%= link_to case_path(c) do %>
-      <div class="card-case m-5 pl-2 d-flex bg-white">
-        <div>
-          <div class="pt-2">
-          </div>
-          <div><h5><img class="avatar" src="https://res.cloudinary.com/louixa/image/upload/v1560217936/photo-1502073018433-36374b61ce42_dyf3vw.jpg"> &nbsp <%= c.family_name %></h5></div>
-          <p>Open Date: <%= c.start_date %></p>
-          <h6 class="card-subtitle text-muted">Case #: <%= c.case_number %></h6>
-          <div class="align-self-center">
-            <p><%= c.priority_action %></p>
-            <p class="btn-index btn-sm mt-2 mr-5 p-2 <%= c.priority_color %>"><%= c.priority_action_date %></p>
-          </div>
-        </div>
-        <div class="map-card build-map h-100" style="width: 100%" id="map-<%= c.id %>" data-markers="<%= c.markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-<% end %>
+<div class="container">
 
-<h1 class="main-card-title pb-2 pt-3 pl-5 pr-5">MY CASES</h1>
-<div class="my-cards flex-row">
-      <% @cases.each do |c| %>
-      <%= link_to case_path(c) do %>
-      <div class="my-card-case m-5 pl-2 bg-white">
-        <div>
-          <div class="pt-2">
-          <div><h5><img class="avatar" src="https://res.cloudinary.com/louixa/image/upload/v1560217936/photo-1502073018433-36374b61ce42_dyf3vw.jpg"> &nbsp <%= c.family_name %></h5></div>
-          <p>Open Date: <%= c.start_date %></p>
-          <h6 class="card-subtitle text-muted">Case #: <%= c.case_number %></h6>
-          <div class="align-self-center">
-            <p><%= c.priority_action %></p>
-            <p class="btn-index btn-sm mt-2 mr-5 p-2 <%= c.priority_color %>"><%= c.priority_action_date %></p>
+  <% if @urgent_cases.any? %>
+  <h6 class="font-weight-bold mt-5 pl-2">URGENT CASES</h6>
+  <div class="cards flex-row">
+      <% @urgent_cases.each do |c| %>
+        <%= link_to case_path(c) do %>
+        <div class="card-case my-4 pl-2 d-flex bg-white">
+          <div class="flex-grow-1 px-3 py-3">
+
+            <div class="d-flex align-items-center">
+              <img class="avatar" src="https://res.cloudinary.com/louixa/image/upload/v1560217936/photo-1502073018433-36374b61ce42_dyf3vw.jpg">
+              <div class="ml-3">
+                <h6 class="mb-1 font-weight-bold"><%= c.child_name %></h6>
+                <p class="font-weight-light"><%= c.family_name %></p>
+              </div>
+              <div class="flex-grow-1"></div>
+              <p><%= c.priority_action %></p>
+              <button class="font-weight-bold btn btn-sm <%= c.priority_color %> ml-3"><%= c.priority_action_date %></button>
+            </div>
+            <p class="mt-4 font-weight-light pr-3">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+              
+          </div>
+
+          <div class="map-card build-map h-100" style="min-width: 300px" id="map-<%= c.id %>" data-markers="<%= c.markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
         </div>
+      <% end %>
+    <% end %>
+  </div>
+  <% end %>
+
+  <h6 class="font-weight-bold mt-5 pl-2">YOUR CASES</h6>
+  <div class="my-cards flex-row">
+      <% @cases.each do |c| %>
+        <%= link_to case_path(c) do %>
+          <div class="card-case my-3 pl-2 bg-white px-3 py-2" style="height: 80px">
+
+            <div class="d-flex align-items-center w-100">
+              <img class="avatar" src="https://res.cloudinary.com/louixa/image/upload/v1560217936/photo-1502073018433-36374b61ce42_dyf3vw.jpg">
+              <div class="ml-3">
+                <h6 class="mb-1 font-weight-bold"><%= c.child_name %></h6>
+                <p class="6font-weight-light"><%= c.family_name %></p>
+              </div>
+              <div class="flex-grow-1"></div>
+              <p><%= c.priority_action %></p>
+              <button class="font-weight-bold btn btn-sm <%= c.priority_color %> ml-3"><%= c.priority_action_date %></button>
+            </div>
+              
         </div>
-      </div>
-    <% end %>
-    <% end %>
+        <% end %>
+      <% end %>
+  </div>
 </div>

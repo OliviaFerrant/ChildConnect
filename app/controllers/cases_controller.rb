@@ -68,6 +68,6 @@ class CasesController < ApplicationController
   end
 
   def case_params
-    params.require(:case).permit(:start_date, :end_date, :child_name, :family_name, :address, :state, :phone_number, :summary, :case_number)
+    params.require(:case).permit(:start_date, :end_date, :child_name, :family_name, :address, :state, :phone_number, :summary, :case_number, :photo)
   end
 end

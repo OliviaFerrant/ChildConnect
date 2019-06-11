@@ -17,17 +17,19 @@
     <link href="https://fonts.googleapis.com/css?family=Cantarell:400,400i,700,700i|Fjalla+One&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="page-container">
-      <div class="navbar">
-        <%= render "layouts/navbar" %>
-      </div>
-      <div class="yield-container">
-        <%= yield %>
-      </div>
-      <div class="footer">
-        <% unless action_name == "home" %>
-        <%= render "layouts/footer" %>
-        <% end %>
+    <div class="wrapper">
+      <div id="page-container">
+        <div class="navbar">
+          <%= render "layouts/navbar" %>
+        </div>
+        <div class="yield-container">
+          <%= yield %>
+        </div>
+        <div class="footer">
+          <% unless action_name == "home" %>
+          <%= render "layouts/footer" %>
+          <% end %>
+        </div>
       </div>
     </div>
     <%= javascript_include_tag 'application' %>

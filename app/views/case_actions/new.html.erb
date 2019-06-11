@@ -5,7 +5,7 @@
       <h3>Add Your Next Action</h3>
       <p class="mb-3">(*) are mandatory fields</p>
       <%= simple_form_for [@case, @case_action] do |f| %>
-        <%= f.input :title, label: 'Action:', collection: CaseAction::ACTS, input_html: { class: "input", style: "width:70%" }, placeholder: 'Add an action that needs to be completed' %>
+        <%= f.input :title, label: 'Action:', collection: CaseAction::ACTS, input_html: { class: "input", style: "width:70%" }, hint: 'Select an action that needs to be completed' %>
         <%= f.input :due_date, label: 'Deadline' %>
         <%= f.full_error :token %>
         <%= link_to "BACK", case_path(@case), class: 'btn btn-secondary rounded-pill btn-sm m-2 ml-5 p-2' %>

@@ -5,10 +5,10 @@
       <h3>Add A Safety Factor</h3>
       <p class="mb-3">Please fill in the form. (*) are mandatory fields</p>
       <%= simple_form_for [@case, @case_safety_factor] do |f| %>
-        <%= f.association :safety_factor, collection: CaseSafetyFactor::SAFETYFACTORS, input_html: { class: "input", style: "width:70%" }, placeholder: 'Add a safety factor' %>
-        <%= f.input :reason %>
+        <%= f.association :safety_factor, collection: CaseSafetyFactor::SAFETYFACTORS, input_html: { class: "input", style: "width:70%" }, hint: 'Select a safety factor which best describes the situation' %>
+        <%= f.input :reason, input_html: { class: "input", style: "width:70%" }, placeholder: 'Write reason for selecting the safety factor' %>
         <%= f.full_error :token %>
-        <%= f.submit 'Add Safety Factor', class: "btn btn-outline-dark" %>
+        <%= f.submit 'ADD SAFETY FACTOR', class: "btn btn-outline-dark" %>
       <% end %>
       </div>
     </div>

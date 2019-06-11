@@ -5,7 +5,7 @@
       <h3>Add A Risk Factor</h3>
       <p class="mb-3">Please fill in the form. (*) are mandatory fields</p>
       <%= simple_form_for [@case, @case_risk] do |cr| %>
-        <%= cr.association :risk, collection: Risk.all %>
+        <%= cr.association :risk, collection: CaseRisk::RISKS, input_html: { class: "input", style: "width:70%" }, placeholder: 'Add a risk factor' %>
         <%= cr.full_error :token %>
         <%= cr.submit 'Add A Risk Factor', class: "btn btn-outline-dark" %>
       <% end %>

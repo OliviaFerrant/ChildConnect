@@ -16,5 +16,4 @@ class CaseAction < ApplicationRecord
     "Case Closure due (day 60)",
     "Case OVERDUE (day 61+)"
   ]
-
 end

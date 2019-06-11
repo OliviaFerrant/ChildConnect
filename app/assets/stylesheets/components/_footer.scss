@@ -1,5 +1,9 @@
 .footer {
+  position:absolute;
+  bottom: 0;
   margin: 0 auto;
+  right: 0;
+  left: 0;
   padding: 0;
   width: 100%;
   color: #393D40;
@@ -7,7 +11,6 @@
   bottom: 0px;
   font-family: 'Roboto Condensed', sans-serif;
 }
-
 // .logo-nyc {
 //     text-indent: 100%;
 //     white-space: nowrap;

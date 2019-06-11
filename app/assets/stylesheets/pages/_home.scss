@@ -149,6 +149,7 @@ a:active {
 
 .cards {
   font-family: 'Asap Condensed', sans-serif;
+  flex-wrap: wrap;
   margin: 0 auto;
   padding: 0;
 }
@@ -161,11 +162,19 @@ a:active {
   border-radius: 3px;
 }
 
+.my-card-case {
+  display: flex;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  width: 300px;
+  height: 170px;
+  flex-wrap: wrap;
+}
+
 .card-case {
   display: flex;
-  position: relative;
-  width: 570px;
-  height: 160px;
+  width: 520px;
+  height: 220px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 3px;

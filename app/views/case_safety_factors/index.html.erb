@@ -1,14 +1,14 @@
 <center>
   <div class="forms-container">
     <div class="row justify-content-center">
-      <div class="col-12 col-sm-8">
-      <h4 class="mt-4">Add new safety factor</h4>
+      <div class="card-body shadow col-12 col-sm-8 m-3 p-5 bg-white rounded">
+      <h4 class="mt-4">Add New Safety Factor</h4>
         <%= simple_form_for [@case, CaseSafetyFactor.new] do |f| %>
         <%= f.input :safety_factor_id,:collection => SafetyFactor.all,:label_method => :fact,:value_method => :id,:label => "Safety Factor" ,:include_blank => false %>
         <%= f.input :reason, as: :text %>
-        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= f.button :submit, 'Add Safety Factor', class: "btn btn-primary" %>
         <%end%>
-      <h4 class="mt-4">Case safety factor</h4>
+      <h4 class="mt-4">Case Safety Factor</h4>
       <div class="gap-30"></div>
       <% @case_safety_factors.each do |case_safety_factor| %>
       <div class="card text-left w-50">

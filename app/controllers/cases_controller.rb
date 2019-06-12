@@ -5,12 +5,12 @@ class CasesController < ApplicationController
   def index
     # @cases = policy_scope(Case).order(created_at: :desc)
     # raise
-    @urgent_cases = policy_scope(Case.joins(:case_actions)).where("case_actions.due_date = ?", Date.today)
+    @urgent_cases = policy_scope(Case.joins(:case_actions)).where("case_actions.status = 'Pending' AND case_actions.due_date BETWEEN ? AND ?", Date.today, Date.today + 1)
     @cases = policy_scope(Case).where.not(id: @urgent_cases)
   end
 
   def show
-    @case_actions = CaseAction.where(case: @case).order(title: :asc)
+    @case_actions = CaseAction.where(case: @case).order(due_date: :asc)
     lat = @case.latitude
     lng = @case.longitude
     coord = [{lat: lat, lng: lng}]
@@ -25,9 +25,14 @@ class CasesController < ApplicationController
 
   def create
     @case = Case.new(case_params)
+    @case.start_date = Date.today
+    @case.end_date = Date.today + 60
     authorize @case
     @case.user_id = current_user
     if @case.save
+      CaseAction::ACTS.each do |h|
+        CaseAction.create!(title: h[:title], due_date: h[:due_date], case_id: @case.id, status: "Pending")
+      end
       redirect_to case_path(@case)
     else
       render :new
@@ -60,6 +65,6 @@ class CasesController < ApplicationController
   end
 
   def case_params
-    params.require(:case).permit(:start_date, :end_date, :child_name, :family_name, :address, :state, :phone_number, :summary, :case_number, :photo)
+    params.require(:case).permit(:child_name, :family_name, :address, :state, :phone_number, :summary, :case_number, :photo)
   end
 end

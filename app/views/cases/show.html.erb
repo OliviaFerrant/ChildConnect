@@ -34,11 +34,11 @@
   <div class="p-2 mr-3 flex-fill bd-highlight" style="width: 100%">
     <h6 class="font-weight-bold mt-3">CASE NOTES</h6>
     <% @case_actions.each do |act| %>
-      <p><a class="btn btn-light mt-2 font-weight-light pr-3"data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="text-align: left; width: 100%;"><%= act.title %> &nbsp | &nbsp DUE: <%= act.due_date %></a></p>
+      <p><a class="btn btn-light mt-2 font-weight-light pr-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="text-align: left; width: 100%;"><%= act.title %> &nbsp | &nbsp <span class="text-danger">DUE: <%= act.due_date %></a></span></p>
       <div class="collapse" id="collapseExample">
         <div class="card card-body">
           <p class="p-3"><%= act.report %></p>
-          <p class="style='width: 50%;'"><%= link_to "Add New Note", edit_case_action_path(act), class: 'btn-b btn-sm m-2 p-2' %></p>
+          <p class="style='width: 70%;'"><%= link_to "New Note", edit_case_action_path(act), class: 'btn-b btn-sm ml-1 mt-5 font-weight-light p-2' %></p>
         </div>
       </div>
     <% end %>
@@ -49,6 +49,6 @@
     <p class="p-1"><strong>OPEN DATE:</strong> <a class="mt-4 font-weight-light pr-3"><%= @case.start_date %></p></a>
     <p class="p-1"><strong>ADDRESS(ES):</strong> <a class="mt-4 font-weight-light pr-3"><%= @case.address %></p></a>
     <p class="p-1 mb-2"><strong>PHONE NUMBER(S):</strong> <a class="mt-4 font-weight-light pr-3"><%= @case.phone_number %></p></a>
-    <%= link_to "  Add Next Action  ", new_case_case_action_path(@case), class: 'btn-b btn-sm ml-1 mt-4 font-weight-light pr-3' %>
+    <%= link_to "  Add Next Action  ", new_case_case_action_path(@case), class: 'btn-b btn-sm ml-1 mt-5 font-weight-light p-2' %>
   </div>
 </div>

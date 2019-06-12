@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_070639) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "case_number"
+    t.integer "case_number"
     t.string "phone_number"
     t.string "summary"
     t.float "latitude"

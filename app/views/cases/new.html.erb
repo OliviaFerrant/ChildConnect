@@ -12,7 +12,7 @@
         <%= f.input :phone_number, label: 'Phone number(s)', placeholder: 'Use "," when adding more than one phone number', input_html: { class: "input", style: "width:70%" } %>
         <%= f.input :summary, label: 'Case Summary', input_html: { class: "input", style: "height:150px; width:70%"}, as: :text, placeholder: 'Write a basic summary about your case' %>
         <%= f.full_error :token %>
-        <%= f.submit "  ADD CASE  ", class: 'btn-b btn-sm ml-1 mt-4 font-weight-light pr-3' %>
+        <%= f.submit "ADD CASE", class: 'btn btn-b btn-sm mt-1 font-weight-light p-2' %>
       <% end %>
       </div>
     </div>

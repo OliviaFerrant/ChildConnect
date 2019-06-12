@@ -43,9 +43,28 @@ a:active {
   text-decoration: none;
 }
 
-.photo-upload {
-  text-align: center;
-  margin-left: 50%;
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  height: 300px;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  font-family: 'Asap Condensed', sans-serif;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .banner-container {
@@ -75,41 +94,30 @@ a:active {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.banner {
-  background-size: cover;
-  background-position: center;
-  padding: 150px 0;
-  height: 300px;
+.btn {
+  font-family: 'Open Sans', sans-serif;
+  color: #FFFFFF !important;
+  font-size: 10px;
+  text-decoration: none;
+  background: #38417D;
+  border: 0;
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  font-family: 'Roboto Condensed', sans-serif;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+.btn-index {
+  font-family: 'Open Sans', sans-serif;
+  color: #FFFFFF !important;
+  font-size: 12px;
+  text-decoration: none;
+  width: 110px;
+  height: 32px;
+  background: #38417D;
+  border: 0;
 }
 
-.banner p {
-  font-size: 20px;
-  font-family: 'Asap Condensed', sans-serif;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+.btn-sm {
+  font-size: .875rem !important;
 }
 
-.show-container {
-  display: flex;
-}
-
-.description-container {
-  width: 300px;
-}
-
-.notes-container {
-  flex-grow: 1;
-}
 
 .card-accordion {
   overflow: hidden;
@@ -117,12 +125,12 @@ a:active {
   padding: 20px;
 }
 
-#map {
-  height: 50vh;
-  flex: 0 0 400px;
-  top: 0;
-  margin: 1em 20px 1em 1em;
-  border-radius: 10px
+.card-case {
+  display: flex;
+  height: 160px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
 }
 
 .cards {
@@ -130,14 +138,28 @@ a:active {
   flex-wrap: wrap;
   margin: 0 auto;
   padding: 0;
+  width: 100%;
 }
 
-.show-card {
-  width: 400px;
-  height: 160px;
-  background: #FFFFFF;
+.card-safety a {
+  color: #393D40;
+}
+
+.description-container {
+  width: 300px;
+}
+
+.id {
   border: 1px solid rgba(0, 0, 0, 0.25);
-  border-radius: 3px;
+}
+
+
+#map {
+  height: 50vh;
+  flex: 0 0 400px;
+  top: 0;
+  margin: 1em 20px 1em 1em;
+  border-radius: 10px
 }
 
 .my-card-case {
@@ -149,56 +171,43 @@ a:active {
   flex-wrap: wrap;
 }
 
-.card-case {
-  display: flex;
+.note-card {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  height: 100%;
+}
+
+.notes-container {
+  flex-grow: 1;
+}
+
+.photo-upload {
+  text-align: center;
+  margin-left: 50%;
+}
+
+.show-card {
+  width: 400px;
   height: 160px;
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 3px;
-  // width: 100%;
-  // height: 100%;
-  // left: 588px;
-  // top: 403px;
-  // background: #FFFFFF;
-  // border: 1px solid rgba(0, 0, 0, 0.25);
-  // box-sizing: border-box;
-  // border-radius: 3px;
 }
 
-// .map-card {
-//   position: relative;
-//   width: 300px;
-//   height: 156px;
-//   left: 252px;
-//   top: -110px;
-// }
-
-/* Style the buttons that are used to open and close the accordion panel */
-.accordion {
-  background-color: #38417D;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
-  color: #FFFFFF;
-  cursor: pointer;
-  padding: 10px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  outline: none;
-  transition: 0.4s;
+.show-container {
+  display: flex;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.accordion:hover {
-  background-color: #686F75;
-}
-
-.card-safety a {
-  color: #393D40;
-}
-
-.id {
-  border: 1px solid rgba(0, 0, 0, 0.25);
+.home-button {
+  position: absolute;
+  width: 231px;
+  height: 53px;
+  left: 80px;
+  top: 340px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.085em;
 }
 
 .home-container {
@@ -208,25 +217,6 @@ a:active {
   left: 144px;
   top: 70px;
   background: #FCF9F9;
-}
-
-.home-title {
-  position: absolute;
-  width: 402px;
-  height: 88px;
-  left: 80px;
-  top: 189px;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 133.68%;
-  /* or 48px */
-  display: flex;
-  align-items: center;
-  letter-spacing: -0.06em;
-  color: #333333;
-
 }
 
 .home-description {
@@ -249,24 +239,32 @@ a:active {
 }
 
 
-.home-button {
-  position: absolute;
-  width: 231px;
-  height: 53px;
-  left: 80px;
-  top: 340px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  letter-spacing: 0.085em;
-}
-
 .home-img {
   position: absolute;
   width: 639px;
   height: 491px;
   left: 460px;
   top: 150px;
+}
+
+
+.home-title {
+  position: absolute;
+  width: 402px;
+  height: 88px;
+  left: 80px;
+  top: 189px;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 133.68%;
+  /* or 48px */
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.06em;
+  color: #333333;
+
 }
 
 // Smallest device

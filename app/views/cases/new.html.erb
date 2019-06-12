@@ -7,8 +7,6 @@
       <%= simple_form_for @case do |f| %>
         <%= f.input :photo, label: 'Upload Photo Of The Child:', input_html: { class: "photo-upload", style: "width:70%" } %>
         <%= f.input :photo_cache, as: :hidden %>
-        <%= f.input :start_date, label: 'Open Date', required: true, as: :string, placeholder: 'MM/DD/YYYY', input_html: { class: 'input', style: "width:70%" } %>
-        <%= f.input :case_number, label: 'Case Number', input_html: { class: "input", style: "width:70%" }, placeholder: 'NY12345' %>
         <%= f.input :child_name, label: 'Subject Child/Children', placeholder: 'Use "," when adding more than one child', error: 'Subject Children is mandatory, please specify one', input_html: { class: "input",style: "width:70%" }  %>
         <%= f.input :family_name, label: 'Case Name', input_html: { class: "input",style: "width:70%" }, placeholder: 'Last name, First name' %>
         <%= f.input :address, label: 'Case Address', input_html: { id: "case-address",class: "input",style: "width:70%" }, placeholder: '70 Tudor Lane' %>

@@ -11,7 +11,7 @@ class Case < ApplicationRecord
   # validates :start_date, presence: true
   # validates :end_date, presence: true
   # validates :state, presence: true
-  validates :case_number, presence: true
+  # validates :case_number, presence: true
   validates :family_name, presence: true
   validates :child_name, presence: true
   validates :address, presence: true
@@ -22,7 +22,7 @@ class Case < ApplicationRecord
 
   def next_action
     #@case = Case.all
-    case_actions.where(status: "Pending").order(:due_date).last
+    case_actions.where(status: "Pending").order(due_date: :desc).last
 
     # 1 - get all my case_actions for this case
     # 2 - sort them by due date

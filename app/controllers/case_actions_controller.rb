@@ -19,6 +19,7 @@ class CaseActionsController < ApplicationController
     @case_action = CaseAction.new(case_action_params)
     authorize @case_action
     @case_action.case = @case
+    @case_action.status = "Pending"
     if @case_action.save
       redirect_to case_path(@case)
     else
@@ -34,16 +35,6 @@ class CaseActionsController < ApplicationController
   def update
     authorize @case_action
     if @case_action.update(case_action_params)
-      # raise
-      case @case_action.status
-      when 'Court'
-        @case_action.case.update(state: 'Court')
-      when 'Close Case'
-        @case_action.case.update(state: 'Close Case')
-      when 'Unchanged'
-        @case_action.case.update(state: 'Unchanged')
-      end
-      @case_action.update(status: nil)
       redirect_to case_path(id: @case_action.case_id)
     else
       render :edit

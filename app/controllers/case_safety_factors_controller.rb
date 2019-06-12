@@ -8,6 +8,7 @@ class CaseSafetyFactorsController < ApplicationController
 
   def new
     @case_safety_factor = CaseSafetyFactor.new
+    authorize @case_safety_factor
   end
 
   def create

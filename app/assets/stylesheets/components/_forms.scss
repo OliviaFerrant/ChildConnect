@@ -1,14 +1,18 @@
 .forms-container {
   padding: 10px 20px;
-  background: #f4f7f8;
+  background: #FCF9F9;
   margin: 10px auto;
   padding: 20px;
-  background: #f4f7f8;
   border-radius: 8px;
   font-family: 'Roboto Condensed', sans-serif;
   display: block;
   margin-bottom: 8px;
   border: none;
+}
+
+.form-inputs {
+  background-color: #fff;
+  padding: 20px
 }
 
 .input {
@@ -30,6 +34,10 @@
   margin-bottom: 30px;
 }
 
+.card-body {
+  background: #fff
+}
+
 /* ----- SimpleForm Styles ----- */
 
 label.collection_radio_buttons {
@@ -38,4 +46,10 @@ label.collection_radio_buttons {
   margin-left: 4px;
 }
 
+.datepicker {
+  text-align:center
+}
 
+.dropdown-menu {
+  background-color: #EFF8FF;
+}

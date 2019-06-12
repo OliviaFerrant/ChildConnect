@@ -65,7 +65,6 @@ User.create!(email: "thomasferrant@hotmail.fr", password: "secret")
 
 puts "creating Cases"
 
-
 d = Faker::Date.between(30.days.ago, Date.today)
 Case.create(child_name: "Jessica", family_name: "Smith", remote_photo_url: "https://i0.wp.com/www.healthline.com/hlcmsresource/images/topic_centers/1296x728_bruise-colors-H1.jpg?w=1155", state: "Open" address: "77 North Myers Drive  South Ozone Park, NY 11420", phone_number: "212-601-3254", summary: "A bruise has been found on the child by the primary school teacher. Parents claim that the child fell down the stairs but teachers said that this is not the first time such inceident is supposed to have occurred", start_date: d, end_date: d + 60)
 
@@ -146,6 +145,5 @@ cases.each do |c|
     end
   end
 end
-
 
 puts "all done !"

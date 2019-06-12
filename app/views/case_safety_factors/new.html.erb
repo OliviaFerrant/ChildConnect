@@ -1,16 +1,14 @@
-
 <center>
   <div class="forms-container">
     <div class="row justify-content-center">
-      <div class="col-12 col-sm-8">
-      <h3>List your safety factors</h3>
-      <div class="gap-30"></div>
-      <p>Please fill in the form. (*) are mandatory columns.</p>
-      <%= simple_form_for @case_safety_factor do |f| %>
-        <%= f.input :case_safety_factor, collection: SafetyFactor.all %>
-        <%= f.input :reason %>
+      <div class="card-body shadow col-12 col-sm-8 m-3 p-5 rounded">
+      <h3>Add A Safety Factor</h3>
+      <p class="mb-4">Please fill in the form. (*) are mandatory fields</p>
+      <%= simple_form_for [@case, @case_safety_factor] do |f| %>
+        <%= f.association :safety_factor, collection: CaseSafetyFactor::SAFETYFACTORS, input_html: { class: "input" } %>
+        <%= f.input :reason, as: :text %>
         <%= f.full_error :token %>
-        <%= f.submit 'Save safety factor', class: "btn btn-outline-dark" %>
+        <%= f.submit 'ADD FACTOR', class: "btn-b btn-sm m-2 p-2" %>
       <% end %>
       </div>
     </div>

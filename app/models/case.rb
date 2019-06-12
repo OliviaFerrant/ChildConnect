@@ -22,7 +22,7 @@ class Case < ApplicationRecord
 
   def next_action
     #@case = Case.all
-    case_actions.where(status: "Pending").order(due_date: :desc).last
+    case_actions.where(status: "Pending").order(:due_date).first
 
     # 1 - get all my case_actions for this case
     # 2 - sort them by due date
@@ -30,7 +30,7 @@ class Case < ApplicationRecord
   end
 
   def priority_action_date
-    priority_next_action = case_actions.where(status: "Pending").order(:due_date).last
+    priority_next_action = case_actions.where(status: "Pending").order(:due_date).first
     if !priority_next_action
       return ""
     else
@@ -39,7 +39,7 @@ class Case < ApplicationRecord
   end
 
   def priority_action
-    priority_next_action = case_actions.where(status: "Pending").order(:due_date).last
+    priority_next_action = case_actions.where(status: "Pending").order(:due_date).first
     if !priority_next_action
       return ""
     else

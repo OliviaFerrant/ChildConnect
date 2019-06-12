@@ -31,7 +31,7 @@ class CasesController < ApplicationController
     @case.user_id = current_user
     if @case.save
       CaseAction::ACTS.each do |h|
-        CaseAction.create!(title: h[:title], due_date: h[:due_date], case_id: @case.id)
+        CaseAction.create!(title: h[:title], due_date: h[:due_date], case_id: @case.id, status: "Pending")
       end
       redirect_to case_path(@case)
     else

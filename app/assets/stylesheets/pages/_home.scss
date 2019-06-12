@@ -94,31 +94,6 @@ a:active {
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.btn {
-  font-family: 'Open Sans', sans-serif;
-  color: #FFFFFF !important;
-  font-size: 10px;
-  text-decoration: none;
-  background: #38417D;
-  border: 0;
-}
-
-.btn-index {
-  font-family: 'Open Sans', sans-serif;
-  color: #FFFFFF !important;
-  font-size: 12px;
-  text-decoration: none;
-  width: 110px;
-  height: 32px;
-  background: #38417D;
-  border: 0;
-}
-
-.btn-sm {
-  font-size: .875rem !important;
-}
-
-
 .card-accordion {
   overflow: hidden;
   height: 100%;
@@ -181,10 +156,6 @@ a:active {
   flex-grow: 1;
 }
 
-.photo-upload {
-  text-align: center;
-  margin-left: 50%;
-}
 
 .show-card {
   width: 400px;

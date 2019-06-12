@@ -8,7 +8,7 @@
         <%= f.association :safety_factor, collection: CaseSafetyFactor::SAFETYFACTORS, input_html: { class: "input" } %>
         <%= f.input :reason, as: :text %>
         <%= f.full_error :token %>
-        <%= f.submit 'ADD FACTOR', class: "btn-b btn-sm m-2 p-2" %>
+        <%= f.submit 'ADD FACTOR', class: "btn-b btn-sm ml-1 mt-4 font-weight-light pr-3" %>
       <% end %>
       </div>
     </div>

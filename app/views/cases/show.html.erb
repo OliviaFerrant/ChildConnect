@@ -1,3 +1,8 @@
+<!-- app/views/cases/show.html.erb -->
+<% content_for :meta_title, "#{@case.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @case.description %>
+<% content_for :meta_image, cl_image_path(@case.photo.path) %>
+
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(https://res.cloudinary.com/louixa/image/upload/v1560225253/bernard-hermant-1065742-unsplash_wfuuxq.jpg);"></div>
 
   <div class="show-container">

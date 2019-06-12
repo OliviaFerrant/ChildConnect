@@ -18,8 +18,8 @@
               <p><%= c.priority_action %></p>
               <button class="font-weight-bold btn btn-sm <%= c.priority_color %> ml-3"><%= c.priority_action_date %></button>
             </div>
-            <p class="mt-4 font-weight-light pr-3">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-              
+            <p class="mt-4 font-weight-light pr-3"><%= c.summary %></p>
+
           </div>
 
           <div class="map-card build-map h-100" style="min-width: 300px" id="map-<%= c.id %>" data-markers="<%= c.markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -46,7 +46,7 @@
               <p><%= c.priority_action %></p>
               <button class="font-weight-bold btn btn-sm <%= c.priority_color %> ml-3"><%= c.priority_action_date %></button>
             </div>
-              
+
         </div>
         <% end %>
       <% end %>

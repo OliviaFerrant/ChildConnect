@@ -5,7 +5,7 @@ class CasesController < ApplicationController
   def index
     # @cases = policy_scope(Case).order(created_at: :desc)
     # raise
-    @urgent_cases = policy_scope(Case.joins(:case_actions)).where("case_actions.status = 'Pending' AND case_actions.due_date BETWEEN ? AND ?", Date.today, Date.today + 1)
+    @urgent_cases = policy_scope(Case.joins(:case_actions)).where("case_actions.status = 'Pending' AND case_actions.due_date BETWEEN ? AND ?", Date.today, Date.today + 1).order(due_date: :asc)
     @cases = policy_scope(Case).where.not(id: @urgent_cases)
   end
 

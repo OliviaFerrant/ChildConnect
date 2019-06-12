@@ -11,7 +11,7 @@ class Case < ApplicationRecord
   # validates :start_date, presence: true
   # validates :end_date, presence: true
   # validates :state, presence: true
-  validates :case_number, presence: true
+  # validates :case_number, presence: true
   validates :family_name, presence: true
   validates :child_name, presence: true
   validates :address, presence: true
@@ -22,7 +22,7 @@ class Case < ApplicationRecord
 
   def next_action
     #@case = Case.all
-    case_actions.where(status: nil).order(:due_date).first
+    case_actions.where(status: "Pending").order(due_date: :desc).last
 
     # 1 - get all my case_actions for this case
     # 2 - sort them by due date
@@ -30,7 +30,7 @@ class Case < ApplicationRecord
   end
 
   def priority_action_date
-    priority_next_action = case_actions.where(status: nil).order(:due_date).first
+    priority_next_action = case_actions.where(status: "Pending").order(:due_date).last
     if !priority_next_action
       return ""
     else
@@ -39,7 +39,7 @@ class Case < ApplicationRecord
   end
 
   def priority_action
-    priority_next_action = case_actions.where(status: nil).order(:due_date).first
+    priority_next_action = case_actions.where(status: "Pending").order(:due_date).last
     if !priority_next_action
       return ""
     else
@@ -52,7 +52,11 @@ class Case < ApplicationRecord
     if !next_case_action
       return 0
     end
-    if next_case_action.due_date - Date.today <= 1
+
+    if next_case_action.due_date < Date.today
+      return 0
+    end
+    if next_case_action.due_date - Date.today <= 1 
       return 2
     elsif next_case_action.due_date - Date.today <= 3
       return 1

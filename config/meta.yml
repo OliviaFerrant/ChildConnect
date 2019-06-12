@@ -1,0 +1,5 @@
+meta_product_name: "ChildConnect"
+meta_title: "ChildConnect - Protedting abused children since 1990 in New York"
+meta_description: "New task and date management software for caseworkers in New York"
+meta_image: "ChildConnect-logo.png" # should exist in `app/assets/images/`
+twitter_account: "@child_connect"   # required for Twitter Cards

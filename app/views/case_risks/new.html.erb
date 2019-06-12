@@ -7,7 +7,7 @@
       <%= simple_form_for [@case, @case_risk] do |cr| %>
         <%= cr.association :risk, collection: CaseRisk::RISKS, input_html: { class: "input" }, placeholder: 'Select A Risk Factor' %>
         <%= cr.full_error :token %>
-        <%= cr.submit 'ADD RISK FACTOR', class: "btn btn-success btn-sm m-2 p-2" %>
+        <%= cr.submit 'ADD RISK FACTOR', class: "btn-b btn-sm m-2 p-2" %>
       <% end %>
       </div>
     </div>

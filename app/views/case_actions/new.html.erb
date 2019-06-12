@@ -6,8 +6,8 @@
       <%= simple_form_for [@case, @case_action] do |f| %>
         <%= f.input :title, label: 'Action:', input_html: { class: "input", style: "width:70%" }, placeholder: 'Add an action that needs to be completed' %>
         <%= f.full_error :token %>
-        <%= link_to "BACK", case_path(@case), class: 'btn btn-success btn-sm m-2 mt-4 p-2' %>
-        <%= f.submit 'ADD ACTION', class: 'btn btn-success btn-sm m-2 mt-4 p-2' %>
+        <%= link_to "BACK", case_path(@case), class: 'btn-b m-2 mt-4 p-2' %>
+        <%= f.submit 'ADD ACTION', class: 'btn-b m-2 mt-4 p-2' %>
       <% end %>
       </div>
     </div>

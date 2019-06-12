@@ -4,15 +4,15 @@
   <h6 class="font-weight-bold mt-5 pl-2">URGENT CASES</h6>
   <div class="cards flex-row">
       <% @urgent_cases.each do |c| %>
-        <%= link_to case_path(c) do %>
+        <span><%= link_to case_path(c) do %>
         <div class="card-case my-4 pl-2 d-flex bg-white">
           <div class="flex-grow-1 px-3 py-3">
 
             <div class="d-flex align-items-center">
               <img class="avatar" src="https://res.cloudinary.com/louixa/image/upload/v1560217936/photo-1502073018433-36374b61ce42_dyf3vw.jpg">
               <div class="ml-3">
-                <h6 class="mb-1 font-weight-bold"><%= c.child_name %></h6>
-                <p class="font-weight-light"><%= c.family_name %></p>
+                <h6 class="mb-1 font-weight-bold"><%= c.family_name %>  | Case # <%= c.case_number %></h6>
+                <p class="font-weight-light"><%= c.child_name %></p>
               </div>
               <div class="flex-grow-1"></div>
               <p><%= c.priority_action %></p>
@@ -29,17 +29,18 @@
     <% end %>
   </div>
   <% end %>
+</span>
 
   <h6 class="font-weight-bold mt-5 pl-2">YOUR CASES</h6>
   <div class="my-cards flex-row">
       <% @cases.each do |c| %>
-        <%= link_to case_path(c) do %>
+        <span><%= link_to case_path(c) do %>
           <div class="card-case my-3 pl-2 bg-white px-3 py-2" style="height: 100px; width: 100%;">
-            <div class="d-flex align-items-center w-100">
+            <div class="d-flex align-items-center flex-wrap w-100">
               <img class="avatar" src="https://res.cloudinary.com/louixa/image/upload/v1560217936/photo-1502073018433-36374b61ce42_dyf3vw.jpg">
               <div class="ml-3">
-                <h6 class="mb-1 font-weight-bold"><%= c.child_name %></h6>
-                <p class="6font-weight-light"><%= c.family_name %></p>
+                <h6 class="mb-1 font-weight-bold"><%= c.family_name %> | Case # <%= c.case_number %></h6>
+                <p class="font-weight-light"><%= c.child_name %></p>
               </div>
               <div class="flex-grow-1"></div>
               <p><%= c.priority_action %></p>
@@ -50,4 +51,5 @@
         <% end %>
       <% end %>
   </div>
+</span>
 </div>

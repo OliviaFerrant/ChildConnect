@@ -6,7 +6,8 @@
         <%= simple_form_for [@case, CaseSafetyFactor.new] do |f| %>
         <%= f.input :safety_factor_id,:collection => SafetyFactor.all,:label_method => :fact,:value_method => :id,:label => "Safety Factors:" ,:include_blank => false %>
         <%= f.input :reason, as: :text, :label => "Reason(s):"%>
-        <%= f.button :submit, 'ADD SAFETY FACTOR', class: "btn-b btn-sm ml-1 mt-4 font-weight-light pr-3" %>
+        <%= link_to "BACK", case_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2' %>
+        <%= f.button :submit, 'ADD SAFETY FACTOR', class: "btn btn-b btn-sm mt-1 font-weight-light p-2" %>
         <%end%>
       <h4 class="mt-4">Selected Safety Factors</h4>
       <div class="gap-30"></div>

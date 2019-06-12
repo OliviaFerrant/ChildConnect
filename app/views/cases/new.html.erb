@@ -1,7 +1,7 @@
 <center>
   <div class="forms-container">
     <div class="row justify-content-center">
-      <div class="card-body shadow col-12 col-sm-8 mt-5 bg-white rounded">
+      <div class="card-body shadow col-12 col-sm-8 mt-5 ounded">
       <h3>Add A New Case</h3>
       <p class="mb-4">All fields are mandatory.</p>
       <%= simple_form_for @case do |f| %>
@@ -15,7 +15,7 @@
         <%= f.input :phone_number, label: 'Phone number(s)', placeholder: 'Use "," when adding more than one phone number', input_html: { class: "input", style: "width:70%" } %>
         <%= f.input :summary, label: 'Case Summary', input_html: { class: "input", style: "height:150px; width:70%"}, as: :text, placeholder: 'Write a basic summary about your case' %>
         <%= f.full_error :token %>
-        <%= f.submit "  ADD CASE  ", class: 'btn btn-secondary rounded-pill btn-sm m-2 p-2' %>
+        <%= f.submit "  ADD CASE  ", class: 'btn btn-secondary btn-sm m-2 p-2' %>
       <% end %>
       </div>
     </div>

@@ -20,6 +20,7 @@
               <button class="font-weight-bold btn btn-sm <%= @case.priority_color %> ml-3"><%= @case.priority_action_date %></button>
             </div>
             <p class="mt-4 font-weight-light pr-3"><%= @case.summary %></p>
+
           </div>
 
           <div class="map-card build-map h-100 d-flex bd-highlight" style="min-width: 300px" id="map-<%= @case.id %>" data-markers="<%= @case.markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">

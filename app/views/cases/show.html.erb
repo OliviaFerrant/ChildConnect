@@ -54,9 +54,11 @@
         <h6 class="font-weight-bold mt-3 text-left">PHOTOS</h6>
       <div class="row text-center text-lg-left">
         <div class="col-lg-3 col-md-4 col-6">
-          <%= link_to image_url(@case.photo), target: :_blank do %>
-          <%= cl_image_tag @case.photo, :transformation => { :width => 65, :crop => "pad" }, target: :_blank  %>
-        <% end %>
+          <%= cl_image_tag @case.photo, id: "myImg", :as => { :width => 65, :crop => "pad" } %>
+          <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+          </div>
         </div>
       </div>
     </div>

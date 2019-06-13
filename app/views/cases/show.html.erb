@@ -56,7 +56,9 @@
       <h6 class="font-weight-bold mt-3 text-left">PHOTOS</h6>
       <div class="row text-center text-lg-left">
         <div class="pl-3">
+        <% if @case.photo.presence %>
           <%= cl_image_tag @case.photo, id: "myImg", :as => { :width => 65, :crop => "pad" } %>
+          <% end %>
           <% @case_actions.each do |act| %>
           <% if act.photo.presence %>
             <%= cl_image_tag act.photo, id: "myImg", :as => { :width => 65, :crop => "pad" } %>

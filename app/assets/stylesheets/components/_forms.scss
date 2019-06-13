@@ -1,12 +1,20 @@
 .forms-container {
   background: #FCF9F9;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
   margin: 10px auto;
   padding: 20px;
   border-radius: 8px;
-  font-family: 'Roboto Condensed', sans-serif;
   display: block;
+  width: 70%;
+  height: 100%;
   margin-bottom: 10px;
   border: none;
+}
+
+.form-container p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 8px;
 }
 
 .form-inputs {
@@ -34,7 +42,7 @@
 }
 
 .card-body {
-  background: #fff;
+  background: #fffFFF;
 }
 
 /* ----- SimpleForm Styles ----- */

@@ -1,19 +1,18 @@
 <center>
   <div class="forms-container">
     <div class="row justify-content-center">
-      <div class="card-body shadow col-12 col-sm-8 mt-5 ounded">
+      <div class="card-body shadow col-12 col-sm-8 mt-5 rounded">
       <h3>Add A New Case</h3>
-      <p class="mb-4">All fields are mandatory.</p>
       <%= simple_form_for @case do |f| %>
-        <%= f.input :photo, label: 'Upload Photo Of The Child:', input_html: { class: "photo-upload", style: "width:70%" } %>
+        <%= f.input :photo, label: 'Upload Photo Of The Child:', input_html: { class: "photo-upload", style: "margin-left: 30px; width: 95px;" } %>
         <%= f.input :photo_cache, as: :hidden %>
         <%= f.input :child_name, label: 'Subject Child/Children', placeholder: 'Use "," when adding more than one child', error: 'Subject Children is mandatory, please specify one', input_html: { class: "input",style: "width:70%" }  %>
-        <%= f.input :family_name, label: 'Case Name', input_html: { class: "input",style: "width:70%" }, placeholder: 'Last name, First name' %>
+        <%= f.input :family_name, label: 'Case Name', input_html: { class: "input", style: "width:70%" }, placeholder: 'Last name, First name' %>
         <%= f.input :address, label: 'Case Address', input_html: { id: "case-address",class: "input",style: "width:70%" }, placeholder: '70 Tudor Lane' %>
         <%= f.input :phone_number, label: 'Phone number(s)', placeholder: 'Use "," when adding more than one phone number', input_html: { class: "input", style: "width:70%" } %>
         <%= f.input :summary, label: 'Case Summary', input_html: { class: "input", style: "height:150px; width:70%"}, as: :text, placeholder: 'Write a basic summary about your case' %>
         <%= f.full_error :token %>
-        <%= f.submit "  ADD CASE  ", class: 'btn btn-secondary btn-sm m-2 p-2' %>
+        <%= f.submit "ADD CASE", class: 'btn btn-b btn-sm mt-1 font-weight-light p-2' %>
       <% end %>
       </div>
     </div>

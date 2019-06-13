@@ -1,14 +1,15 @@
 <center>
   <div class="forms-container">
     <div class="row justify-content-center">
-      <div class="card-body shadow col-12 col-sm-8 m-3 p-5 rounded">
+      <div class="card-body shadow col-12 col-sm-8 mt-5 rounded">
       <h3>Add A Safety Factor</h3>
       <p class="mb-4">Please fill in the form. (*) are mandatory fields</p>
       <%= simple_form_for [@case, @case_safety_factor] do |f| %>
         <%= f.association :safety_factor, collection: CaseSafetyFactor::SAFETYFACTORS, input_html: { class: "input" } %>
         <%= f.input :reason, as: :text %>
         <%= f.full_error :token %>
-        <%= f.submit 'ADD FACTOR', class: "btn-b btn-sm m-2 p-2" %>
+        <%= link_to "BACK", case_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2' %>
+        <%= f.submit 'ADD SAFETY FACTOR', class: "btn btn-b btn-sm mt-1 font-weight-light p-2" %>
       <% end %>
       </div>
     </div>

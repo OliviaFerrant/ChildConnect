@@ -1,50 +1,76 @@
+<!-- app/views/cases/show.html.erb -->
+<% content_for :meta_title, "#{@case.family_name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @case.summary %>
+<%# content_for :meta_image, cl_image_path(@case.photo) %>
+
 <div class="container">
   <div class="cards flex-row bd-highlight">
-        <%= link_to case_path(@case) do %>
-        <div class="card-case my-4 pl-2 d-flex bg-white">
-          <div class="flex-grow-1 px-3 py-3">
-            <div class="d-flex align-items-center">
-              <img class="avatar" src="https://res.cloudinary.com/louixa/image/upload/v1560217936/photo-1502073018433-36374b61ce42_dyf3vw.jpg">
-              <div class="ml-3">
-                <h6 class="mb-1 font-weight-bold"><%= @case.family_name %></h6>
-                <p class="font-weight-light"><%= @case.child_name %></p>
-              </div>
-              <div class="flex-grow-1"></div>
-              <p><%= @case.priority_action %></p>
-              <button class="font-weight-bold btn btn-sm <%= @case.priority_color %> ml-3"><%= @case.priority_action_date %></button>
-            </div>
-            <p class="mt-4 font-weight-light pr-3"><%= @case.summary %></p>
-
+    <div class="card-case my-4 pl-2 d-flex bg-white">
+      <div class="flex-grow-1 px-3 py-3">
+        <div class="d-flex align-items-center">
+          <div class="ml-3">
+            <h6 class="mb-1 font-weight-bold"><%= @case.family_name %></h6>
+            <p class="font-weight-light"><%= @case.child_name %></p>
           </div>
-
-          <div class="map-card build-map h-100 d-flex bd-highlight" style="min-width: 300px" id="map-<%= @case.id %>" data-markers="<%= @case.markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
+          <div class="flex-grow-1"></div>
+          <p><%= @case.priority_action %></p>
+          <span class="font-weight-bold btn-priority btn-sm <%= @case.priority_color %> text-white ml-3">
+            <%= @case.priority_action_date %>
+          </span>
         </div>
-      <% end %>
+        <p class="mt-4 font-weight-light pr-3"><%= @case.summary %></p>
+      </div>
+      <div class="map-card build-map h-100 d-flex bd-highlight" style="min-width: 300px" id="map-<%= @case.id %>" data-markers="<%= @case.markers.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
   </div>
 
-
-<div class="d-flex flex-row">
-  <div class="p-2 flex-fill bd-highlight" style="
-    width: 100%;">
-    <h6 class="font-weight-bold mt-3">CASE NOTES</h6>
-    <% @case_actions.each do |act| %>
-      <p><a class="btn btn-sm p-2 mt-2"data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><%= act.title %> | DUE: <%= act.due_date %></a></p>
-      <div class="collapse" id="collapseExample">
+  <div class="d-flex flex-row">
+    <div class="p-2 flex-fill bd-highlight" style="width: 100%">
+      <div class="d-flex justify-content-between">
+        <h6 class="font-weight-bold mt-3">CASE NOTES</h6>
+        <%= link_to "Add Next Action", new_case_case_action_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
+      </div>
+        <% @case_actions.each do |act| %>
+            <a class="d-flex justify-content-between card-case my-3 pl-2 bg-white px-3 py-2" style="height: 36px;width: 100%; text-align: left;" data-toggle="collapse" href="#collapse-<%= act.id %>" role="button" aria-expanded="false" aria-controls="collapse-<%= act.id %>">
+              <p><%= act.title %></p><p>DUE: <%= act.due_date %></p>
+            </a>
+        <div class="collapse" id="collapse-<%= act.id %>">
         <div class="card card-body">
           <p class="p-3"><%= act.report %></p>
-          <p class="style='width: 50%;'"><%= link_to "Add New Note", edit_case_action_path(act), class: 'btn btn-dark btn-sm ml-3 ' %>
+          <p><%= link_to "New Note", edit_case_action_path(act), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2' %></p>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="p-2 flex-fill bd-highlight" style="
-    min-width: 300px;">
-    <h6 class="font-weight-bold mt-3">CASE # <%= @case.case_number %></h6>
-    <p class="p-1"><strong>STATUS:</strong> &nbsp <%= @case.state %></p>
-    <p class="p-1"><strong>OPEN DATE:</strong> &nbsp <%= @case.start_date %></p>
-    <p class="p-1"><strong>ADDRESS(ES):</strong> &nbsp <%= @case.address %></p>
-    <p class="p-1 mb-2"><strong>PHONE NUMBER(S):</strong> &nbsp <%= @case.phone_number %></p>
-    <%= link_to "  Add Next Action  ", new_case_case_action_path(@case), class: 'btn btn-dark btn-sm ml-3' %>
+
+  <div class="p-2 flex-fill bd-highlight" style="width: 410px;">
+    <h6 class="font-weight-bold mt-3 text-left">CASE # <%= @case.case_number %></h6>
+    <p class="p-1 d-flex justify-content-between"><strong>STATUS:</strong> <a class="font-weight-light"><%= @case.state %></p></a>
+    <p class="p-1 d-flex justify-content-between"><strong>PHONE NUMBER(S):</strong> <a class="font-weight-light"><%= @case.phone_number %></p></a>
+    <p class="p-1 d-flex justify-content-between"><strong>OPEN DATE:</strong> <a class="font-weight-light"><%= @case.start_date %></p></a>
+    <p class="p-1 mb-2"><strong>ADDRESS(ES):</strong><br> <a class="mt-4 font-weight-light"><%= @case.address %></p></a>
+    <%= link_to "Safety Factors", case_case_safety_factors_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
+    <%= link_to "Risk Factors", case_case_risks_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
+
+    <div class="imageContainer">
+      <h6 class="font-weight-bold mt-3 text-left">PHOTOS</h6>
+      <div class="row text-center text-lg-left">
+        <div class="pl-3">
+        <% if @case.photo.presence %>
+          <%= cl_image_tag @case.photo, id: "myImg", :as => { :width => 65, :crop => "pad" } %>
+          <% end %>
+          <% @case_actions.each do |act| %>
+          <% if act.photo.presence %>
+            <%= cl_image_tag act.photo, id: "myImg", :as => { :width => 65, :crop => "pad" } %>
+          <% end %>
+          <% end %>
+          <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+          </div>
+          <%= link_to "Add photo", case_case_risks_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -30,6 +30,7 @@ class CasesController < ApplicationController
   def create
     @case = Case.new(case_params)
     @case.start_date = Date.today
+    @case.state = "Open"
     @case.end_date = Date.today + 60
     authorize @case
     @case.user_id = current_user

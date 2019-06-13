@@ -5,6 +5,7 @@
       <h4 class="mt-4">Add New Risk Factor</h4>
         <%= simple_form_for [@case, CaseRisk.new] do |f| %>
         <%= f.input :risk_id,:collection => Risk.all,:label_method => :category,:value_method => :id,:label => "Risk Factor" ,:include_blank => false %>
+        <%= link_to "BACK", case_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2' %>
         <%= f.button :submit, 'ADD RISK FACTOR', class: "btn btn-b btn-sm mt-1 font-weight-light p-2" %>
         <%end%>
       <h4 class="mt-4">Selected Risk Factors</h4>
@@ -12,7 +13,7 @@
       <% @case_risks.each do |case_risk| %>
       <div class="card text-left w-50">
         <div class="card-header">
-          <h5><%= case_risk.risk.category %></h5>
+          <p><%= case_risk.risk.category %></p>
         </div>
       </div>
       <% end %>

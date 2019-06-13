@@ -128,6 +128,11 @@ a:active {
   border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
+.imageContainer > img:hover {
+  width: 500px;
+  height: 200px;
+}
+
 
 #map {
   height: 50vh;

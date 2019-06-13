@@ -26,7 +26,10 @@
 
   <div class="d-flex flex-row">
     <div class="p-2 flex-fill bd-highlight" style="width: 100%">
-      <h6 class="font-weight-bold mt-3">CASE NOTES</h6>
+      <div class="d-flex justify-content-between">
+        <h6 class="font-weight-bold mt-3">CASE NOTES</h6>
+        <%= link_to "Add Next Action", new_case_case_action_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
+      </div>
         <% @case_actions.each do |act| %>
             <a class="d-flex justify-content-between card-case my-3 pl-2 bg-white px-3 py-2" style="height: 36px;width: 100%; text-align: left;" data-toggle="collapse" href="#collapse-<%= act.id %>" role="button" aria-expanded="false" aria-controls="collapse-<%= act.id %>">
               <p><%= act.title %></p><p>DUE: <%= act.due_date %></p>
@@ -42,23 +45,28 @@
 
   <div class="p-2 flex-fill bd-highlight" style="width: 410px;">
     <h6 class="font-weight-bold mt-3 text-left">CASE # <%= @case.case_number %></h6>
-    <p class="p-1"><strong>STATUS:</strong> <a class="mt-4 font-weight-light pr-3"><%= @case.state %></p></a>
-    <p class="p-1"><strong>OPEN DATE:</strong> <a class="mt-4 font-weight-light pr-3"><%= @case.start_date %></p></a>
-    <p class="p-1"><strong>ADDRESS(ES):</strong> <a class="mt-4 font-weight-light pr-3"><%= @case.address %></p></a>
-    <p class="p-1 mb-2"><strong>PHONE NUMBER(S):</strong> <a class="mt-4 font-weight-light pr-3"><%= @case.phone_number %></p></a>
-    <%= link_to "Add Next Action", new_case_case_action_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
+    <p class="p-1 d-flex justify-content-between"><strong>STATUS:</strong> <a class="font-weight-light"><%= @case.state %></p></a>
+    <p class="p-1 d-flex justify-content-between"><strong>PHONE NUMBER(S):</strong> <a class="font-weight-light"><%= @case.phone_number %></p></a>
+    <p class="p-1 d-flex justify-content-between"><strong>OPEN DATE:</strong> <a class="font-weight-light"><%= @case.start_date %></p></a>
+    <p class="p-1 mb-2"><strong>ADDRESS(ES):</strong><br> <a class="mt-4 font-weight-light"><%= @case.address %></p></a>
     <%= link_to "Safety Factors", case_case_safety_factors_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
     <%= link_to "Risk Factors", case_case_risks_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
 
     <div class="imageContainer">
-        <h6 class="font-weight-bold mt-3 text-left">PHOTOS</h6>
+      <h6 class="font-weight-bold mt-3 text-left">PHOTOS</h6>
       <div class="row text-center text-lg-left">
-        <div class="col-lg-3 col-md-4 col-6">
+        <div class="pl-3">
           <%= cl_image_tag @case.photo, id: "myImg", :as => { :width => 65, :crop => "pad" } %>
+          <% @case_actions.each do |act| %>
+          <% if act.photo.presence %>
+            <%= cl_image_tag act.photo, id: "myImg", :as => { :width => 65, :crop => "pad" } %>
+          <% end %>
+          <% end %>
           <div id="myModal" class="modal">
             <span class="close">&times;</span>
             <img class="modal-content" id="img01">
           </div>
+          <%= link_to "Add photo", case_case_risks_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
         </div>
       </div>
     </div>

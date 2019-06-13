@@ -1,11 +1,15 @@
+import { S_IFMT } from "constants";
+
 const popUpImg = () => {
   const modal = document.getElementById("myModal");
-  const img = document.getElementById("myImg");
+  const images = document.querySelectorAll("#myImg");
   const modalImg = document.getElementById("img01");
-  img.onclick = function(){
-    modal.style.display = "block";
-    modalImg.src = this.src;
-  }
+   images.forEach((img) => {
+     img.onclick = function(){
+       modal.style.display = "block";
+       modalImg.src = img.src;
+     }
+   });
 
   const span = document.getElementsByClassName("close")[0];
 

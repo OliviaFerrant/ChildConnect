@@ -20,6 +20,7 @@ class CaseActionsController < ApplicationController
     authorize @case_action
     @case_action.case = @case
     @case_action.status = "Pending"
+    @case_action.due_date = Date.today
     if @case_action.save
       redirect_to case_path(@case)
     else

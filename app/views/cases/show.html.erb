@@ -48,7 +48,8 @@
     <p class="p-1"><strong>ADDRESS(ES):</strong> <a class="mt-4 font-weight-light pr-3"><%= @case.address %></p></a>
     <p class="p-1 mb-2"><strong>PHONE NUMBER(S):</strong> <a class="mt-4 font-weight-light pr-3"><%= @case.phone_number %></p></a>
     <%= link_to "Add Next Action", new_case_case_action_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
-    <%= link_to "Safety Factors", new_case_case_safety_factor_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
+    <%= link_to "Safety Factors", new_case_case_action_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
     <%= link_to "Risk Factors", new_case_case_risk_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
   </div>
+<%= cl_image_tag @case.photo, width: 600, height: 500, crop: :fill  %>
 </div>

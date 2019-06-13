@@ -10,8 +10,10 @@
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
-  max-width: 65px;
+  width: 280px;
   margin-bottom: 2px;
+  object-fit: cover;
+  height: 100px;
 }
 
 #myImg:hover {opacity: 0.7;}

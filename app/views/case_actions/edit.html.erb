@@ -7,6 +7,8 @@
       <p><h6>Case Status:</h6>
         <%= f.collection_radio_buttons :status, [['Pending'],['Done']], :first, :last, input_html: { class: "input"}, checked: 'Pending' %></p>
         <%= f.input :report, label: 'Case Note:', input_html: { class: "input", style: "height:150px; width:70%"}, as: :text %>
+        <%= f.input :photo, label: 'Upload Photo:', input_html: { class: "photo-upload", style: "margin-left: 30px; width: 95px;" } %>
+        <%= f.input :photo_cache, as: :hidden %>
         <%= f.full_error :token %>
         <p>
           <%= link_to "BACK", case_path(id: @case_action.case_id), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2' %>

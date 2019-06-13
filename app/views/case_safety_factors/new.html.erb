@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="card-body shadow col-12 col-sm-8 mt-5 rounded">
       <h3>Add A Safety Factor</h3>
-      <p class="mb-4">(*) are mandatory fields</p>
+      <p class="mb-4">Please fill in the form. (*) are mandatory fields</p>
       <%= simple_form_for [@case, @case_safety_factor] do |f| %>
         <%= f.association :safety_factor, collection: CaseSafetyFactor::SAFETYFACTORS, input_html: { class: "input" } %>
         <%= f.input :reason, as: :text %>

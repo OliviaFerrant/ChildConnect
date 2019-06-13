@@ -8,7 +8,6 @@
     <div class="card-case my-4 pl-2 d-flex bg-white">
       <div class="flex-grow-1 px-3 py-3">
         <div class="d-flex align-items-center">
-          <img class="avatar" src="https://res.cloudinary.com/louixa/image/upload/v1560217936/photo-1502073018433-36374b61ce42_dyf3vw.jpg">
           <div class="ml-3">
             <h6 class="mb-1 font-weight-bold"><%= @case.family_name %></h6>
             <p class="font-weight-light"><%= @case.child_name %></p>
@@ -48,8 +47,18 @@
     <p class="p-1"><strong>ADDRESS(ES):</strong> <a class="mt-4 font-weight-light pr-3"><%= @case.address %></p></a>
     <p class="p-1 mb-2"><strong>PHONE NUMBER(S):</strong> <a class="mt-4 font-weight-light pr-3"><%= @case.phone_number %></p></a>
     <%= link_to "Add Next Action", new_case_case_action_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
-    <%= link_to "Safety Factors", new_case_case_action_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
-    <%= link_to "Risk Factors", new_case_case_risk_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
+    <%= link_to "Safety Factors", case_case_safety_factors_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
+    <%= link_to "Risk Factors", case_case_risks_path(@case), class: 'btn btn-b btn-sm mt-1 font-weight-light p-2'%>
+
+    <div class="imageContainer">
+        <h6 class="font-weight-bold mt-3 text-left">PHOTOS</h6>
+      <div class="row text-center text-lg-left">
+        <div class="col-lg-3 col-md-4 col-6">
+          <%= link_to image_url(@case.photo), target: :_blank do %>
+          <%= cl_image_tag @case.photo, :transformation => { :width => 65, :crop => "pad" }, target: :_blank  %>
+        <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-<%= cl_image_tag @case.photo, width: 600, height: 500, crop: :fill  %>
 </div>

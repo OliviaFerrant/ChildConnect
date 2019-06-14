@@ -32,7 +32,7 @@
       </div>
         <% @case_actions.each do |act| %>
             <% if act.status == "Pending" %>
-              <a class="d-flex justify-content-between card-case my-3 pl-2 bg-white px-3 py-2" style="height: 36px;width: 100%; text-align: left;" data-toggle="collapse" href="#collapse-<%= act.id %>" role="button" aria-expanded="false" aria-controls="collapse-<%= act.id %>">
+              <a class="d-flex justify-content-between card-case my-3 pl-2 bg-white px-3 py-2" style="height: 36px;width: 100%; text-align: left; <%= @case.next_action.id == act.id ? "border: 1px solid rgb(253, 16, 21);" : ""%>" data-toggle="collapse" href="#collapse-<%= act.id %>" role="button" aria-expanded="false" aria-controls="collapse-<%= act.id %>">
                 <p><%= act.title %></p><p>DUE: <%= act.due_date %></p>
               <% else %>
                 <a class="d-flex justify-content-between card-case my-3 pl-2 px-3 py-2" style="height: 36px;width: 100%; text-align: left; background-color: rgba(100, 100, 100, 0.2)" data-toggle="collapse" href="#collapse-<%= act.id %>" role="button" aria-expanded="false" aria-controls="collapse-<%= act.id %>">

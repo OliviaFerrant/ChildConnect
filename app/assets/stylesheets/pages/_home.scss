@@ -179,6 +179,7 @@ a:active {
   align-items: center;
   text-align: center;
   letter-spacing: 0.085em;
+  margin-top: 120px;
 }
 
 .home-container {
@@ -201,11 +202,12 @@ a:active {
   font-weight: 300;
   font-size: 12px;
   line-height: 20px;
-  display: flex;
   align-items: center;
   letter-spacing: 0.03em;
   color: #333333;
   padding: 10px;
+  padding-left: 0px;
+  margin-top: 20px;
 }
 
 
@@ -235,6 +237,9 @@ a:active {
   letter-spacing: -0.06em;
   color: #333333;
 
+  h1 {
+    line-height: 40px;
+  }
 }
 
 // Smallest device
@@ -272,3 +277,12 @@ a:active {
   }
 }
 
+.rounded-check {
+  min-width: 20px;
+  height: 20px;
+  background-color: #ef8a87;
+  border-radius: 50%;
+  text-align: center;
+  color: #FFF;
+  margin-right: 7px;
+}

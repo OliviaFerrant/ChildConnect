@@ -9,7 +9,9 @@ require 'faker'
 puts "cleaning db..."
 User.destroy_all
 CaseSafetyFactor.destroy_all
+SafetyFactor.destroy_all
 CaseRisk.destroy_all
+Risk.destroy_all
 CaseAction.destroy_all
 Case.destroy_all
 risks = [
